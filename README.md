@@ -1,7 +1,6 @@
 # community-history
 Taskcluster history from https://community-tc.services.mozilla.com deployment for:
 
-* [AWS Worker Types](/AWSWorkerTypes)
 * [Clients](/Clients)
 * [Hooks](/Hooks)
 * [Roles](/Roles)

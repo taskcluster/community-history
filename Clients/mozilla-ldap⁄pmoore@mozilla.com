@@ -9,7 +9,7 @@
   ],
   "expires": "3017-01-31T23:00:00.000Z",
   "lastDateUsed": "1977-08-19T16:00:00.000Z",
-  "lastModified": "2019-10-17T14:11:50.679Z",
+  "lastModified": "2019-10-17T14:17:19.479Z",
   "lastRotated": "2019-10-17T14:11:50.679Z",
   "scopes": [
     "assume:mozilla-user:pmoore@mozilla.com"

@@ -48,14 +48,14 @@
             "TC_SECRET_ID": "project/relman/bugbug/production"
           },
           {
-            "TAG": "v0.0.154"
+            "TAG": "v0.0.155"
           }
         ]
       },
       "features": {
         "taskclusterProxy": true
       },
-      "image": "mozilla/bugbug-commit-retrieval:v0.0.154",
+      "image": "mozilla/bugbug-commit-retrieval:v0.0.155",
       "maxRunTime": 7200
     },
     "priority": "normal",
@@ -65,11 +65,13 @@
       "notify.email.release-mgmt-analysis@mozilla.com.on-failed",
       "notify.irc-channel.#bugbug.on-failed",
       "index.project.relman.bugbug.test_select.latest",
-      "index.project.relman.bugbug.test_select.diff.${payload['DIFF_ID']}"
+      "index.project.relman.bugbug.test_select.diff.${payload['DIFF_ID']}",
+      "project.relman.bugbug.test_select"
     ],
     "schedulerId": "-",
     "scopes": [
-      "assume:hook-id:project-relman/bugbug-test-select"
+      "assume:hook-id:project-relman/bugbug-test-select",
+      "queue:route:project.relman.bugbug.test_select.*"
     ],
     "tags": {},
     "workerType": "compute-large"

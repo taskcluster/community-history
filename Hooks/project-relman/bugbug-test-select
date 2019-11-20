@@ -1,10 +1,10 @@
 {
   "hookGroupId": "project-relman",
-  "hookId": "bugbug-classify-patch",
+  "hookId": "bugbug-test-select",
   "metadata": {
     "description": "",
     "emailOnError": true,
-    "name": "BugBug classify patch",
+    "name": "BugBug test select",
     "owner": "mcastelluccio@mozilla.com"
   },
   "schedule": [],
@@ -21,22 +21,14 @@
     "extra": {},
     "metadata": {
       "description": "",
-      "name": "BugBug classify patch",
+      "name": "BugBug test select",
       "owner": "mcastelluccio@mozilla.com",
       "source": "https://github.com/mozilla/bugbug"
     },
     "payload": {
       "artifacts": {
-        "public/importances.json": {
-          "path": "/importances.json",
-          "type": "file"
-        },
-        "public/method_level.json": {
-          "path": "/method_level.json",
-          "type": "file"
-        },
-        "public/probs.json": {
-          "path": "/probs.json",
+        "public/selected_tasks": {
+          "path": "/selected_tasks",
           "type": "file"
         }
       },
@@ -46,11 +38,9 @@
       "capabilities": {},
       "command": [
         "bugbug-classify-commit",
-        "regressor",
+        "testselect",
         "/cache",
-        "${payload['DIFF_ID']}",
-        "--git_repo_dir=/gecko-dev",
-        "--method_defect_predictor_dir=/MethodDefectPredictor"
+        "${payload['DIFF_ID']}"
       ],
       "env": {
         "$merge": [
@@ -74,12 +64,12 @@
     "routes": [
       "notify.email.release-mgmt-analysis@mozilla.com.on-failed",
       "notify.irc-channel.#bugbug.on-failed",
-      "index.project.relman.bugbug.classify_patch.latest",
-      "index.project.relman.bugbug.classify_patch.diff.${payload['DIFF_ID']}"
+      "index.project.relman.bugbug.test_select.latest",
+      "index.project.relman.bugbug.test_select.diff.${payload['DIFF_ID']}"
     ],
     "schedulerId": "-",
     "scopes": [
-      "assume:hook-id:project-relman/bugbug-classify-patch"
+      "assume:hook-id:project-relman/bugbug-test-select"
     ],
     "tags": {},
     "workerType": "compute-large"

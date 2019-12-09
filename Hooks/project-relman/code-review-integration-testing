@@ -1,0 +1,60 @@
+{
+  "hookGroupId": "project-relman",
+  "hookId": "code-review-integration-testing",
+  "metadata": {
+    "description": "Run code-review integration tests once every day",
+    "emailOnError": true,
+    "name": "Code review hook (testing)",
+    "owner": "babadie@mozilla.com"
+  },
+  "schedule": [
+    "0 0 7 * * *"
+  ],
+  "task": {
+    "created": {
+      "$fromNow": "0 seconds"
+    },
+    "deadline": {
+      "$fromNow": "2 hours"
+    },
+    "expires": {
+      "$fromNow": "1 month"
+    },
+    "extra": {},
+    "metadata": {
+      "description": "Integration tests for the code-review bot workflow",
+      "name": "Code review integration tests (testing)",
+      "owner": "babadie@mozilla.com",
+      "source": "https://github.com/mozilla/code-review"
+    },
+    "payload": {
+      "artifacts": {},
+      "cache": {},
+      "capabilities": {},
+      "env": {
+        "CLONE_DIR": "/clone",
+        "TASKCLUSTER_SECRET": "project/relman/code-review/integration-testing"
+      },
+      "features": {
+        "taskclusterProxy": true
+      },
+      "image": "mozilla/code-review:dcac4affdca4133d7a02cc2c6b843f6568a05614",
+      "maxRunTime": 7200
+    },
+    "priority": "normal",
+    "provisionerId": "aws-provisioner-v1",
+    "retries": 1,
+    "routes": [],
+    "schedulerId": "-",
+    "scopes": [
+      "secrets:get:project/relman/code-review/integration-testing",
+      "notify:email:*"
+    ],
+    "tags": {},
+    "workerType": "relman-svc"
+  },
+  "triggerSchema": {
+    "additionalProperties": true,
+    "type": "object"
+  }
+}

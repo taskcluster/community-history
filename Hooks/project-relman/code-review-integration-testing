@@ -29,16 +29,18 @@
     },
     "payload": {
       "artifacts": {},
-      "cache": {},
+      "cache": {
+        "code-review-integration-testing": "/cache"
+      },
       "capabilities": {},
       "env": {
-        "CLONE_DIR": "/clone",
+        "CLONE_DIR": "/cache",
         "TASKCLUSTER_SECRET": "project/relman/code-review/integration-testing"
       },
       "features": {
         "taskclusterProxy": true
       },
-      "image": "mozilla/code-review:96babf8a7107144a8a00fc43aa46bfe19bf81bef",
+      "image": "mozilla/code-review:fcfa29cebd53377db28fc3d132a63e442dd3eb60",
       "maxRunTime": 7200
     },
     "priority": "normal",
@@ -48,13 +50,14 @@
     "schedulerId": "-",
     "scopes": [
       "secrets:get:project/relman/code-review/integration-testing",
+      "docker-worker:cache:code-review-integration-testing",
       "notify:email:*"
     ],
     "tags": {},
     "workerType": "ci"
   },
   "triggerSchema": {
-    "additionalProperties": true,
+    "additionalProperties": false,
     "type": "object"
   }
 }

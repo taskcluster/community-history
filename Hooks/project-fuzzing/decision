@@ -15,6 +15,7 @@
     "workerType": "decision",
     "scopes": [
       "secrets:get:project/fuzzing/deploy-fuzzing-tc-config",
+      "secrets:get:project/fuzzing/decision",
       "queue:scheduler-id:-"
     ],
     "payload": {
@@ -30,7 +31,7 @@
       "command": [
         "/bin/bash",
         "-cxe",
-        "apt-get update\napt-get install -qq openssh-client curl git \u003e /dev/null\nmkdir ~/.ssh\nssh-keyscan github.com \u003e ~/.ssh/known_hosts\ncurl -L \"$TASKCLUSTER_PROXY_URL/api/secrets/v1/secret/$DEPLOY_KEY\" |\npython -c 'import json, os, sys; a = json.load(sys.stdin);\nopen(os.path.expanduser(\"~/.ssh/id_ed25519\"),\n\"w\").write(a[\"secret\"][\"key\"])'\nchmod 0400 ~/.ssh/id_ed25519\ngit clone --quiet git@github.com:MozillaSecurity/fuzzing-tc-config.git\n/src\ncd /src\ngit -c advice.detachedHead=false checkout origin/v0\npip install --disable-pip-version-check --no-cache-dir --quiet /src\nfuzzing-decision\n"
+        "apt-get update\napt-get install -qq openssh-client curl git \u003e /dev/null\nmkdir ~/.ssh\nssh-keyscan github.com \u003e ~/.ssh/known_hosts\ncurl -L \"$TASKCLUSTER_PROXY_URL/api/secrets/v1/secret/$DEPLOY_KEY\" |\npython -c 'import json, os, sys; a = json.load(sys.stdin);\nopen(os.path.expanduser(\"~/.ssh/id_ed25519\"),\n\"w\").write(a[\"secret\"][\"key\"])'\nchmod 0400 ~/.ssh/id_ed25519\ngit clone --quiet git@github.com:MozillaSecurity/fuzzing-tc-config.git /src\ncd /src\ngit -c advice.detachedHead=false checkout origin/v0\npip install --disable-pip-version-check --no-cache-dir --quiet /src\nfuzzing-decision\n"
       ]
     },
     "metadata": {

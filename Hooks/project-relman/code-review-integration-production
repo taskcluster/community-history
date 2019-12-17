@@ -1,10 +1,10 @@
 {
   "hookGroupId": "project-relman",
-  "hookId": "code-review-integration-testing",
+  "hookId": "code-review-integration-production",
   "metadata": {
     "description": "Run code-review integration tests once every day",
     "emailOnError": true,
-    "name": "Code review hook (testing)",
+    "name": "Code review hook (production)",
     "owner": "babadie@mozilla.com"
   },
   "schedule": [
@@ -23,24 +23,24 @@
     "extra": {},
     "metadata": {
       "description": "Integration tests for the code-review bot workflow",
-      "name": "Code review integration tests (testing)",
+      "name": "Code review integration tests (production)",
       "owner": "babadie@mozilla.com",
       "source": "https://github.com/mozilla/code-review"
     },
     "payload": {
       "artifacts": {},
       "cache": {
-        "code-review-integration-testing": "/cache"
+        "code-review-integration-production": "/cache"
       },
       "capabilities": {},
       "env": {
         "CLONE_DIR": "/cache",
-        "TASKCLUSTER_SECRET": "project/relman/code-review/integration-testing"
+        "TASKCLUSTER_SECRET": "project/relman/code-review/integration-production"
       },
       "features": {
         "taskclusterProxy": true
       },
-      "image": "mozilla/code-review:integration-81aa06a31333816f37214a456c297500e3510bc8",
+      "image": "mozilla/code-review:integration-df0f758e5580f0653ff18022e8dbead3b03b6118",
       "maxRunTime": 7200
     },
     "priority": "normal",
@@ -49,8 +49,8 @@
     "routes": [],
     "schedulerId": "-",
     "scopes": [
-      "secrets:get:project/relman/code-review/integration-testing",
-      "docker-worker:cache:code-review-integration-testing",
+      "secrets:get:project/relman/code-review/integration-production",
+      "docker-worker:cache:code-review-integration-production",
       "notify:email:*"
     ],
     "tags": {},

@@ -7,8 +7,8 @@
     "assume:project:relman:bugbug/build",
     "assume:project:relman:bugbug/deploy",
     "assume:repo:github.com/mozilla/bugbug:*",
-    "docker-worker:cache:bugbug-build",
-    "docker-worker:cache:bugbug-mercurial-repository",
+    "auth:aws-s3:read-write:communitytc-bugbug/*",
+    "docker-worker:cache:bugbug-*",
     "docker-worker:capability:privileged",
     "hooks:modify-hook:project-relman/bugbug",
     "hooks:modify-hook:project-relman/bugbug-*",
@@ -26,11 +26,13 @@
     "secrets:get:project/relman/bugbug/integration",
     "secrets:get:project/relman/bugbug/production"
   ],
-  "lastModified": "2019-11-12T16:14:57.606Z",
+  "lastModified": "2020-03-18T10:05:21.042Z",
   "roleId": "repo:github.com/mozilla/bugbug:*",
   "scopes": [
     "assume:project:relman:bugbug/build",
+    "queue:create-task:highest:proj-relman/batch",
     "queue:create-task:highest:proj-relman/ci",
+    "queue:create-task:highest:proj-relman/win2012r2",
     "queue:route:statuses"
   ]
 }

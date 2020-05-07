@@ -1,0 +1,47 @@
+{
+  "hookGroupId": "project-cia",
+  "hookId": "etl-schedulers",
+  "metadata": {
+    "description": "Schedule ETL for the various shadow schedulers",
+    "emailOnError": true,
+    "name": "etl-schedulers",
+    "owner": "klahnakoski@mozilla.com"
+  },
+  "schedule": [],
+  "task": {
+    "provisionerId": "proj-cia",
+    "workerType": "ci",
+    "payload": {
+      "image": "python:3.7",
+      "command": [
+        "/bin/bash",
+        "-c",
+        "git clone https://github.com/armenzg/smart-scheduling \u0026\u0026 cd /smart-scheduling \u0026\u0026 git checkout dev \u0026\u0026 /smart-scheduling/scripts/etl/schedulers/main.sh"
+      ],
+      "maxRunTime": 600,
+      "features": {
+        "taskclusterProxy": true
+      }
+    },
+    "metadata": {
+      "name": "Hook Task",
+      "description": "Task Description",
+      "owner": "name@example.com",
+      "source": "https://tc.example.com/hooks"
+    },
+    "expires": {
+      "$fromNow": "3 months"
+    },
+    "deadline": {
+      "$fromNow": "1 hours"
+    },
+    "scopes": [
+      "assume:hook-id:project-cia/etl-schedulers"
+    ]
+  },
+  "triggerSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  }
+}

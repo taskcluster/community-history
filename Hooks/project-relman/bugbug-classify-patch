@@ -47,8 +47,9 @@
       "command": [
         "bugbug-classify-commit",
         "regressor",
-        "/cache",
-        "${payload['DIFF_ID']}",
+        "/cache/mozilla-central",
+        "--phabricator-deployment=${payload['PHABRICATOR_DEPLOYMENT']}",
+        "--diff-id=${payload['DIFF_ID']}",
         "--git_repo_dir=/gecko-dev",
         "--method_defect_predictor_dir=/MethodDefectPredictor"
       ],
@@ -58,14 +59,14 @@
             "TC_SECRET_ID": "project/relman/bugbug/production"
           },
           {
-            "TAG": "v0.0.185"
+            "TAG": "v0.0.279"
           }
         ]
       },
       "features": {
         "taskclusterProxy": true
       },
-      "image": "mozilla/bugbug-commit-retrieval:v0.0.185",
+      "image": "mozilla/bugbug-commit-retrieval:v0.0.279",
       "maxRunTime": 7200
     },
     "priority": "normal",
@@ -82,16 +83,24 @@
       "assume:hook-id:project-relman/bugbug-classify-patch"
     ],
     "tags": {},
-    "workerType": "compute-large"
+    "workerType": "compute-small"
   },
   "triggerSchema": {
     "additionalProperties": false,
     "properties": {
       "DIFF_ID": {
         "type": "number"
+      },
+      "PHABRICATOR_DEPLOYMENT": {
+        "enum": [
+          "prod",
+          "dev"
+        ],
+        "type": "string"
       }
     },
     "required": [
+      "PHABRICATOR_DEPLOYMENT",
       "DIFF_ID"
     ],
     "type": "object"

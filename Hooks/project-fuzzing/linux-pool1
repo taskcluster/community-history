@@ -7,7 +7,12 @@
     "name": "linux-pool1",
     "owner": "fuzzing+taskcluster@mozilla.com"
   },
-  "schedule": [],
+  "schedule": [
+    "21 59 4 * * *",
+    "21 59 10 * * *",
+    "21 59 16 * * *",
+    "21 59 22 * * *"
+  ],
   "task": {
     "created": {
       "$fromNow": "0 seconds"
@@ -16,7 +21,7 @@
       "$fromNow": "1 hour"
     },
     "expires": {
-      "$fromNow": "1 month"
+      "$fromNow": "1 week"
     },
     "extra": {},
     "metadata": {
@@ -30,7 +35,9 @@
       "cache": {},
       "capabilities": {},
       "env": {
-        "TASKCLUSTER_SECRET": "project/fuzzing/decision"
+        "TASKCLUSTER_SECRET": "project/fuzzing/decision",
+        "FUZZING_GIT_REPOSITORY": "git@github.com:MozillaSecurity/fuzzing-tc-config.git",
+        "FUZZING_GIT_REVISION": "refs/heads/master"
       },
       "features": {
         "taskclusterProxy": true

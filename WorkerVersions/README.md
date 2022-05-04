@@ -142,6 +142,4 @@ built-in/succeed:                                                          No ar
 
 ```
 proj-git-cinnabar/osx
-proj-servo/docker-untrusted
-proj-servo/docker
 ```

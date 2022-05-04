@@ -1,0 +1,108 @@
+{
+  "hookGroupId": "project-bugbug",
+  "hookId": "bugbug-classify-patch",
+  "metadata": {
+    "description": "",
+    "emailOnError": true,
+    "name": "BugBug classify patch",
+    "owner": "mcastelluccio@mozilla.com"
+  },
+  "schedule": [],
+  "task": {
+    "tags": {},
+    "extra": {},
+    "routes": [
+      "notify.email.mcastelluccio@mozilla.com.on-failed",
+      "notify.irc-channel.#bugbug.on-failed",
+      "index.project.bugbug.classify_patch.latest",
+      "index.project.bugbug.classify_patch.diff.${payload['DIFF_ID']}"
+    ],
+    "scopes": [
+      "assume:hook-id:project-bugbug/bugbug-classify-patch"
+    ],
+    "created": {
+      "$fromNow": "0 seconds"
+    },
+    "expires": {
+      "$fromNow": "1 month"
+    },
+    "payload": {
+      "env": {
+        "$merge": [
+          {
+            "TC_SECRET_ID": "project/bugbug/production"
+          },
+          {
+            "TAG": "v0.0.474"
+          }
+        ]
+      },
+      "cache": {
+        "bugbug-mercurial-repository": "/cache"
+      },
+      "image": "mozilla/bugbug-commit-retrieval:v0.0.474",
+      "command": [
+        "bugbug-classify-commit",
+        "regressor",
+        "/cache/mozilla-central",
+        "--phabricator-deployment=${payload['PHABRICATOR_DEPLOYMENT']}",
+        "--diff-id=${payload['DIFF_ID']}",
+        "--git_repo_dir=/gecko-dev",
+        "--method_defect_predictor_dir=/MethodDefectPredictor"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {
+        "public/probs.json": {
+          "path": "/probs.json",
+          "type": "file"
+        },
+        "public/importances.json": {
+          "path": "/importances.json",
+          "type": "file"
+        },
+        "public/method_level.json": {
+          "path": "/method_level.json",
+          "type": "file"
+        }
+      },
+      "maxRunTime": 7200,
+      "capabilities": {}
+    },
+    "retries": 5,
+    "deadline": {
+      "$fromNow": "2 hours"
+    },
+    "metadata": {
+      "name": "BugBug classify patch",
+      "owner": "mcastelluccio@mozilla.com",
+      "source": "https://github.com/mozilla/bugbug",
+      "description": ""
+    },
+    "priority": "normal",
+    "workerType": "compute-small",
+    "schedulerId": "-",
+    "provisionerId": "proj-bugbug"
+  },
+  "triggerSchema": {
+    "type": "object",
+    "required": [
+      "PHABRICATOR_DEPLOYMENT",
+      "DIFF_ID"
+    ],
+    "properties": {
+      "DIFF_ID": {
+        "type": "number"
+      },
+      "PHABRICATOR_DEPLOYMENT": {
+        "enum": [
+          "prod",
+          "dev"
+        ],
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+}

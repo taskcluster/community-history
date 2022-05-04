@@ -1,0 +1,64 @@
+{
+  "hookGroupId": "project-fuzzing",
+  "hookId": "gr-css",
+  "metadata": {
+    "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nHook for updating gr.css grammar",
+    "emailOnError": true,
+    "name": "gr-css",
+    "owner": "jkratzer@mozilla.com"
+  },
+  "schedule": [
+    "0 10 * * *"
+  ],
+  "task": {
+    "routes": [
+      "notify.email.jkratzer@mozilla.com.on-failed"
+    ],
+    "scopes": [
+      "docker-worker:capability:device:hostSharedMemory",
+      "docker-worker:capability:device:loopbackAudio",
+      "docker-worker:capability:privileged",
+      "queue:get-artifact:project/fuzzing/gr-css/*",
+      "queue:route:notify.email.jkratzer@mozilla.com.on-failed",
+      "queue:scheduler-id:-",
+      "secrets:get:project/fuzzing/deploy-gr-css",
+      "secrets:get:project/fuzzing/deploy-gr-css-generator",
+      "secrets:get:project/fuzzing/deploy-gr-css-reports",
+      "secrets:get:project/fuzzing/deploy-octo-private",
+      "secrets:get:project/fuzzing/deploy-npm",
+      "secrets:get:project/fuzzing/ci-git-token"
+    ],
+    "expires": {
+      "$fromNow": "1 months"
+    },
+    "payload": {
+      "image": {
+        "path": "public/gr-css-reports.tar.zst",
+        "type": "indexed-image",
+        "namespace": "project.fuzzing.orion.gr-css-reports.master"
+      },
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {
+        "project/fuzzing/gr-css": {
+          "path": "/live.log",
+          "type": "file"
+        }
+      },
+      "maxRunTime": 10800
+    },
+    "deadline": {
+      "$fromNow": "6 hours"
+    },
+    "metadata": {
+      "name": "gr-css",
+      "owner": "jkratzer@mozilla.com",
+      "source": "https://github.com/MozillaSecurity/gr.css.reports",
+      "description": "Hook for updating gr.css grammar"
+    },
+    "workerType": "ci",
+    "provisionerId": "proj-fuzzing"
+  },
+  "triggerSchema": {}
+}

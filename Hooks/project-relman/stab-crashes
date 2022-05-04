@@ -1,0 +1,65 @@
+{
+  "hookGroupId": "project-relman",
+  "hookId": "stab-crashes",
+  "metadata": {
+    "description": "",
+    "emailOnError": true,
+    "name": "stab-crashes run",
+    "owner": "mcastelluccio@mozilla.com"
+  },
+  "schedule": [
+    "0 0 0 * * *"
+  ],
+  "task": {
+    "tags": {},
+    "extra": {},
+    "routes": [
+      "notify.email.mcastelluccio@mozilla.com.on-failed",
+      "notify.email.gsvelto@mozilla.com.on-failed"
+    ],
+    "scopes": [
+      "assume:hook-id:project-relman/stab-crashes",
+      "secrets:get:project/relman/stab-crashes/production"
+    ],
+    "created": {
+      "$fromNow": "0 seconds"
+    },
+    "expires": {
+      "$fromNow": "1 month"
+    },
+    "payload": {
+      "env": {},
+      "cache": {},
+      "image": "python",
+      "command": [
+        "/bin/sh",
+        "-lcxe",
+        "git clone --quiet https://github.com/mozilla/stab-crashes.git \u0026\u0026 cd stab-crashes \u0026\u0026 /bin/sh -lcxe ./run.sh"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {},
+      "maxRunTime": 7200,
+      "capabilities": {}
+    },
+    "retries": 5,
+    "deadline": {
+      "$fromNow": "2 hours"
+    },
+    "metadata": {
+      "name": "stab-crashes run",
+      "owner": "mcastelluccio@mozilla.com",
+      "source": "https://github.com/mozilla/stab-crashes",
+      "description": ""
+    },
+    "priority": "normal",
+    "workerType": "ci",
+    "schedulerId": "-",
+    "provisionerId": "proj-relman"
+  },
+  "triggerSchema": {
+    "type": "object",
+    "additionalProperties": false
+  }
+}

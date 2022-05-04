@@ -1,0 +1,66 @@
+{
+  "hookGroupId": "project-bugbug",
+  "hookId": "bugbug-checks",
+  "metadata": {
+    "description": "",
+    "emailOnError": true,
+    "name": "BugBug check tasks",
+    "owner": "mcastelluccio@mozilla.com"
+  },
+  "schedule": [
+    "0 0 0 * * *"
+  ],
+  "task": {
+    "tags": {},
+    "extra": {},
+    "routes": [
+      "notify.email.release-mgmt-analysis@mozilla.com.on-failed",
+      "notify.irc-channel.#bugbug.on-failed"
+    ],
+    "scopes": [
+      "assume:hook-id:project-bugbug/bugbug-checks"
+    ],
+    "created": {
+      "$fromNow": "0 seconds"
+    },
+    "expires": {
+      "$fromNow": "1 week"
+    },
+    "payload": {
+      "env": {
+        "TAG": "v0.0.471"
+      },
+      "cache": {},
+      "image": "mozilla/bugbug-spawn-pipeline:v0.0.471",
+      "command": [
+        "/usr/local/bin/python3",
+        "/code/spawn_pipeline.py",
+        "/code/check-pipeline.yml"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {},
+      "maxRunTime": 7200,
+      "capabilities": {}
+    },
+    "retries": 5,
+    "deadline": {
+      "$fromNow": "2 hours"
+    },
+    "metadata": {
+      "name": "BugBug check tasks",
+      "owner": "mcastelluccio@mozilla.com",
+      "source": "https://github.com/mozilla/bugbug",
+      "description": ""
+    },
+    "priority": "normal",
+    "workerType": "batch",
+    "schedulerId": "-",
+    "provisionerId": "proj-bugbug"
+  },
+  "triggerSchema": {
+    "type": "object",
+    "additionalProperties": false
+  }
+}

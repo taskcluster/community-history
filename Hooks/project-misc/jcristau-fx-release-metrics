@@ -7,33 +7,8 @@
     "name": "jcristau-fx-release-metrics",
     "owner": "jcristau@mozilla.com"
   },
-  "schedule": [
-    "0 0 8 * * *"
-  ],
+  "schedule": [],
   "task": {
-    "provisionerId": "proj-misc",
-    "workerType": "ci",
-    "payload": {
-      "image": "debian:10",
-      "features": {
-        "taskclusterProxy": true
-      },
-      "command": [
-        "/bin/bash",
-        "-c",
-        "apt-get update \u0026\u0026 apt-get -y install git mercurial python3-requests \u0026\u0026 git clone https://github.com/jcristau/fx-release-metrics/ \u0026\u0026 cd fx-release-metrics \u0026\u0026 python3 run-taskcluster.py"
-      ],
-      "maxRunTime": 1200,
-      "artifacts": {
-        "public/results.json": {
-          "type": "file",
-          "path": "/results.json"
-        }
-      },
-      "env": {
-        "PREVIOUS_RESULTS": "https://community-tc.services.mozilla.com/api/index/v1/task/project.misc.jcristau.fx-release-metrics.latest/artifacts/public/results.json"
-      }
-    },
     "routes": [
       "index.project.misc.jcristau.fx-release-metrics.latest",
       "notify.email.jcristau@mozilla.com.on-failed"
@@ -42,12 +17,35 @@
       "queue:route:index.project.misc.jcristau.fx-release-metrics.latest",
       "queue:route:notify.email.jcristau@mozilla.com.*"
     ],
+    "payload": {
+      "env": {
+        "PREVIOUS_RESULTS": "https://community-tc.services.mozilla.com/api/index/v1/task/project.misc.jcristau.fx-release-metrics.latest/artifacts/public/results.json"
+      },
+      "image": "debian:10",
+      "command": [
+        "/bin/bash",
+        "-c",
+        "apt-get update \u0026\u0026 apt-get -y install git mercurial python3-requests \u0026\u0026 git clone https://github.com/jcristau/fx-release-metrics/ \u0026\u0026 cd fx-release-metrics \u0026\u0026 python3 run-taskcluster.py"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {
+        "public/results.json": {
+          "path": "/results.json",
+          "type": "file"
+        }
+      },
+      "maxRunTime": 1200
+    },
     "metadata": {
       "name": "fx release metrics",
-      "description": "Taskcluster hook to run fx release metrics",
       "owner": "jcristau@mozilla.com",
-      "source": "https://github.com/jcristau/fx-release-metrics/blob/master/hook.json"
-    }
+      "source": "https://github.com/jcristau/fx-release-metrics/blob/master/hook.json",
+      "description": "Taskcluster hook to run fx release metrics"
+    },
+    "workerType": "ci",
+    "provisionerId": "proj-misc"
   },
   "triggerSchema": {}
 }

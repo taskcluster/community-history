@@ -11,53 +11,53 @@
     "0 0 7 * * *"
   ],
   "task": {
-    "created": {
-      "$fromNow": "0 seconds"
-    },
-    "deadline": {
-      "$fromNow": "2 hours"
-    },
-    "expires": {
-      "$fromNow": "1 month"
-    },
+    "tags": {},
     "extra": {},
-    "metadata": {
-      "description": "Integration tests for the code-review bot workflow",
-      "name": "Code review integration tests (production)",
-      "owner": "babadie@mozilla.com",
-      "source": "https://github.com/mozilla/code-review"
-    },
-    "payload": {
-      "artifacts": {},
-      "cache": {
-        "code-review-integration-production": "/cache"
-      },
-      "capabilities": {},
-      "env": {
-        "CLONE_DIR": "/cache",
-        "TASKCLUSTER_SECRET": "project/relman/code-review/integration-production"
-      },
-      "features": {
-        "taskclusterProxy": true
-      },
-      "image": "mozilla/code-review:integration-944dc57ec1fcdf1e1386544f1f388e1832ab992e",
-      "maxRunTime": 7200
-    },
-    "priority": "normal",
-    "provisionerId": "proj-relman",
-    "retries": 1,
     "routes": [],
-    "schedulerId": "-",
     "scopes": [
       "secrets:get:project/relman/code-review/integration-production",
       "docker-worker:cache:code-review-integration-production",
       "notify:email:*"
     ],
-    "tags": {},
-    "workerType": "ci"
+    "created": {
+      "$fromNow": "0 seconds"
+    },
+    "expires": {
+      "$fromNow": "1 month"
+    },
+    "payload": {
+      "env": {
+        "CLONE_DIR": "/cache",
+        "TASKCLUSTER_SECRET": "project/relman/code-review/integration-production"
+      },
+      "cache": {
+        "code-review-integration-production": "/cache"
+      },
+      "image": "mozilla/code-review:integration-4810a090436f0a0ec23a0e21e880fcdd67af9f31",
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {},
+      "maxRunTime": 7200,
+      "capabilities": {}
+    },
+    "retries": 1,
+    "deadline": {
+      "$fromNow": "2 hours"
+    },
+    "metadata": {
+      "name": "Code review integration tests (production)",
+      "owner": "babadie@mozilla.com",
+      "source": "https://github.com/mozilla/code-review",
+      "description": "Integration tests for the code-review bot workflow"
+    },
+    "priority": "normal",
+    "workerType": "ci",
+    "schedulerId": "-",
+    "provisionerId": "proj-relman"
   },
   "triggerSchema": {
-    "additionalProperties": false,
-    "type": "object"
+    "type": "object",
+    "additionalProperties": false
   }
 }

@@ -4,7 +4,7 @@
       "registrationTimeout": 900,
       "reregistrationTimeout": 345600
     },
-    "maxCapacity": 1,
+    "maxCapacity": 32,
     "minCapacity": 0,
     "launchConfigs": [
       {
@@ -16,7 +16,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -24,22 +24,15 @@
         "scheduling": {
           "onHostMaintenance": "terminate"
         },
-        "machineType": "zones/us-east1-b/machineTypes/n1-standard-8",
+        "machineType": "zones/us-east1-b/machineTypes/n2-standard-8",
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -62,513 +55,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east1",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east1-c/machineTypes/n1-standard-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east1-d",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east1",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east1-d/machineTypes/n1-standard-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-a",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east4-a/machineTypes/n1-standard-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-b",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east4-b/machineTypes/n1-standard-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-c",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east4-c/machineTypes/n1-standard-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east1-b",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east1",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east1-b/machineTypes/n1-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east1-c",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east1",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east1-c/machineTypes/n1-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east1-d",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east1",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east1-d/machineTypes/n1-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-a",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east4-a/machineTypes/n1-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-b",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east4-b/machineTypes/n1-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-c",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east4-c/machineTypes/n1-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east1-c",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -580,18 +67,11 @@
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -614,7 +94,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -626,18 +106,11 @@
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -660,7 +133,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -672,18 +145,11 @@
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -706,7 +172,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -718,18 +184,11 @@
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -744,7 +203,7 @@
         "capacityPerInstance": 1
       },
       {
-        "zone": "us-east1-c",
+        "zone": "us-east4-c",
         "disks": [
           {
             "boot": true,
@@ -752,99 +211,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east1",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east1-c/machineTypes/n2-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east1-d",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east1",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east1-d/machineTypes/n2-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-a",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -852,68 +219,15 @@
         "scheduling": {
           "onHostMaintenance": "terminate"
         },
-        "machineType": "zones/us-east4-a/machineTypes/n2-highmem-8",
+        "machineType": "zones/us-east4-c/machineTypes/n2-standard-8",
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
-          }
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-b",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate"
-        },
-        "machineType": "zones/us-east4-b/machineTypes/n2-highmem-8",
-        "workerConfig": {
-          "shutdown": {
-            "enabled": true,
-            "afterIdleSeconds": 900
-          },
-          "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -936,7 +250,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -944,22 +258,15 @@
         "scheduling": {
           "onHostMaintenance": "terminate"
         },
-        "machineType": "zones/us-east1-b/machineTypes/c2-standard-8",
+        "machineType": "zones/us-east1-b/machineTypes/n2-highmem-8",
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -982,7 +289,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -990,22 +297,15 @@
         "scheduling": {
           "onHostMaintenance": "terminate"
         },
-        "machineType": "zones/us-east1-c/machineTypes/c2-standard-8",
+        "machineType": "zones/us-east1-c/machineTypes/n2-highmem-8",
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -1028,7 +328,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -1036,22 +336,54 @@
         "scheduling": {
           "onHostMaintenance": "terminate"
         },
-        "machineType": "zones/us-east1-d/machineTypes/c2-standard-8",
+        "machineType": "zones/us-east1-d/machineTypes/n2-highmem-8",
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
+          }
+        },
+        "networkInterfaces": [
+          {
+            "accessConfigs": [
+              {
+                "type": "ONE_TO_ONE_NAT"
+              }
+            ]
+          }
+        ],
+        "capacityPerInstance": 1
+      },
+      {
+        "zone": "us-east4-a",
+        "disks": [
+          {
+            "boot": true,
+            "type": "PERSISTENT",
+            "autoDelete": true,
+            "initializeParams": {
+              "diskSizeGb": 50,
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
+            }
+          }
+        ],
+        "region": "us-east4",
+        "scheduling": {
+          "onHostMaintenance": "terminate"
+        },
+        "machineType": "zones/us-east4-a/machineTypes/n2-highmem-8",
+        "workerConfig": {
+          "shutdown": {
+            "enabled": true,
+            "afterIdleSeconds": 180
+          },
+          "dockerConfig": {
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -1074,7 +406,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 50,
-              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-gcp-community-googlecompute-2020-05-27t20-17-36z"
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
             }
           }
         ],
@@ -1082,22 +414,54 @@
         "scheduling": {
           "onHostMaintenance": "terminate"
         },
-        "machineType": "zones/us-east4-b/machineTypes/c2-standard-8",
+        "machineType": "zones/us-east4-b/machineTypes/n2-highmem-8",
         "workerConfig": {
           "shutdown": {
             "enabled": true,
-            "afterIdleSeconds": 900
+            "afterIdleSeconds": 180
           },
           "dockerConfig": {
-            "linkInfo": {
-              "binds": [
-                {
-                  "source": "/dev/shm",
-                  "target": "/dev/shm"
-                }
-              ]
-            },
-            "allowPrivileged": true
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
+          }
+        },
+        "networkInterfaces": [
+          {
+            "accessConfigs": [
+              {
+                "type": "ONE_TO_ONE_NAT"
+              }
+            ]
+          }
+        ],
+        "capacityPerInstance": 1
+      },
+      {
+        "zone": "us-east4-c",
+        "disks": [
+          {
+            "boot": true,
+            "type": "PERSISTENT",
+            "autoDelete": true,
+            "initializeParams": {
+              "diskSizeGb": 50,
+              "sourceImage": "projects/taskcluster-imaging/global/images/docker-worker-5nrfllxteqxz1yrln5kx"
+            }
+          }
+        ],
+        "region": "us-east4",
+        "scheduling": {
+          "onHostMaintenance": "terminate"
+        },
+        "machineType": "zones/us-east4-c/machineTypes/n2-highmem-8",
+        "workerConfig": {
+          "shutdown": {
+            "enabled": true,
+            "afterIdleSeconds": 180
+          },
+          "dockerConfig": {
+            "allowPrivileged": true,
+            "allowDisableSeccomp": true
           }
         },
         "networkInterfaces": [
@@ -1114,9 +478,9 @@
     ]
   },
   "created": "2020-06-03T13:51:48.409Z",
-  "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nFuzzing workers generated by decision task",
+  "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nFuzzing resources generated by https://github.com/MozillaSecurity/orion/tree/master/services/fuzzing-decision",
   "emailOnError": true,
-  "lastModified": "2020-06-03T22:59:31.199Z",
+  "lastModified": "2021-09-29T20:28:07.501Z",
   "owner": "fuzzing+taskcluster@mozilla.com",
   "providerId": "community-tc-workers-google",
   "workerPoolId": "proj-fuzzing/linux-pool17"

@@ -11,15 +11,6 @@
     "7 13 8 * * *"
   ],
   "task": {
-    "schedulerId": "taskcluster-github",
-    "provisionerId": "proj-servo",
-    "workerType": "docker",
-    "metadata": {
-      "name": "Servo daily: decision task. On failure, ping SimonSapin",
-      "description": "",
-      "owner": "servo-ops@mozilla.com",
-      "source": "https://github.com/servo/taskcluster-config/blob/master/config/hooks.yml"
-    },
     "routes": [
       "notify.irc-channel.#servo.on-failed"
     ],
@@ -29,24 +20,16 @@
     "expires": {
       "$fromNow": "3 months"
     },
-    "deadline": {
-      "$fromNow": "12 hours"
-    },
     "payload": {
-      "maxRunTime": 600,
+      "env": {
+        "GIT_REF": "refs/heads/master",
+        "GIT_SHA": "HEAD",
+        "GIT_URL": "https://github.com/servo/servo.git",
+        "TASK_FOR": "daily",
+        "TASK_OWNER": "servo-ops@mozilla.com",
+        "TASK_SOURCE": "https://github.com/servo/taskcluster-config/blob/master/config/hooks.yml"
+      },
       "image": "servobrowser/taskcluster-bootstrap:decision-task@sha256:7471a998e4462638c8d3e2cf0b4a99c9a5c8ca9f2ec0ae01cc069473b35cde10",
-      "features": {
-        "taskclusterProxy": true
-      },
-      "artifacts": {
-        "public/repo.bundle": {
-          "type": "file",
-          "path": "/repo.bundle",
-          "expires": {
-            "$fromNow": "1 day"
-          }
-        }
-      },
       "command": [
         "/bin/bash",
         "--login",
@@ -54,15 +37,32 @@
         "-c",
         "git init repo \u0026\u0026 cd repo \u0026\u0026 git fetch --depth 1 \"$GIT_URL\" \"$GIT_REF\" \u0026\u0026 git reset --hard FETCH_HEAD \u0026\u0026 python3 etc/taskcluster/decision_task.py"
       ],
-      "env": {
-        "GIT_URL": "https://github.com/servo/servo.git",
-        "GIT_REF": "refs/heads/master",
-        "GIT_SHA": "HEAD",
-        "TASK_FOR": "daily",
-        "TASK_OWNER": "servo-ops@mozilla.com",
-        "TASK_SOURCE": "https://github.com/servo/taskcluster-config/blob/master/config/hooks.yml"
-      }
-    }
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {
+        "public/repo.bundle": {
+          "path": "/repo.bundle",
+          "type": "file",
+          "expires": {
+            "$fromNow": "1 day"
+          }
+        }
+      },
+      "maxRunTime": 600
+    },
+    "deadline": {
+      "$fromNow": "12 hours"
+    },
+    "metadata": {
+      "name": "Servo daily: decision task. On failure, ping SimonSapin",
+      "owner": "servo-ops@mozilla.com",
+      "source": "https://github.com/servo/taskcluster-config/blob/master/config/hooks.yml",
+      "description": ""
+    },
+    "workerType": "docker",
+    "schedulerId": "taskcluster-github",
+    "provisionerId": "proj-servo"
   },
   "triggerSchema": {}
 }

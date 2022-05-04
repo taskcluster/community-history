@@ -1,0 +1,45 @@
+{
+  "hookGroupId": "project-mozci",
+  "hookId": "check-backfills-production",
+  "metadata": {
+    "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nCheck backfill completion every few minutes",
+    "emailOnError": true,
+    "name": "check-backfills-production",
+    "owner": "mcastelluccio@mozilla.com"
+  },
+  "schedule": [
+    "*/5 * * * *"
+  ],
+  "task": {
+    "scopes": [
+      "assume:hook-id:project-mozci/check-backfills-production"
+    ],
+    "payload": {
+      "env": {
+        "TASKCLUSTER_SECRET": "project/mozci/production"
+      },
+      "image": {
+        "path": "public/mozci.tar.zst",
+        "type": "indexed-image",
+        "namespace": "project.mozci.docker.branch.production"
+      },
+      "command": [
+        "check-backfills",
+        "--environment=production"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "maxRunTime": 1800
+    },
+    "metadata": {
+      "name": "mozci check-backfills - production",
+      "owner": "mcastelluccio@mozilla.com",
+      "source": "https://github.com/mozilla/mozci",
+      "description": "Check backfill completion every few minutes"
+    },
+    "workerType": "compute-smaller",
+    "provisionerId": "proj-mozci"
+  },
+  "triggerSchema": {}
+}

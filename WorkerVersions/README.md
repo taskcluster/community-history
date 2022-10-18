@@ -1,34 +1,36 @@
 ## Generic worker
 
 ```
-proj-bergamot/ci-windows:                                                  generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/ci-windows:                                                   generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/grizzly-reduce-worker-windows:                                generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/macos-pool74:                                                 generic-worker multiuser engine 44.4.0 (revision fdf6c822f1554159e4e361f73b0a64dba3f512a6) darwin amd64 Go 1.16.7
-proj-fuzzing/macos-pool75:                                                 generic-worker multiuser engine 44.4.0 (revision fdf6c822f1554159e4e361f73b0a64dba3f512a6) darwin amd64 Go 1.16.7
-proj-fuzzing/windows-pool55:                                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/windows-pool58:                                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/windows-pool59:                                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/windows-pool60:                                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/windows-pool61:                                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/windows-pool62:                                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-fuzzing/windows-pool63:                                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-git-cinnabar/win2012r2:                                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-relman/win2012r2:                                                     generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
+proj-bergamot/ci-windows:                                                  generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/ci-windows:                                                   generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/grizzly-reduce-worker-windows:                                generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool55:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool58:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool59:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool60:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool61:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool62:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool63:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool79:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool81:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-fuzzing/windows-pool85:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-git-cinnabar/win2012r2:                                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-relman/win2012r2:                                                     generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
 proj-taskcluster/gw-ci-macos:                                              generic-worker multiuser engine 44.8.4 (revision b510adb0c4eef1468c53bc730d6ce3d386f24325) darwin amd64 Go 1.17.8
-proj-taskcluster/gw-ci-ubuntu-18-04-staging:                               generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) linux amd64 Go 1.18.1
-proj-taskcluster/gw-ci-ubuntu-18-04:                                       generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) linux amd64 Go 1.18.1
-proj-taskcluster/gw-ci-windows2012r2-amd64-staging:                        generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-taskcluster/gw-ci-windows2012r2-amd64:                                generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-taskcluster/gw-ubuntu-20-04-staging:                                  generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) linux amd64 Go 1.18.1
-proj-taskcluster/gw-windows-2022:                                          generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
-proj-taskcluster/release:                                                  generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) linux amd64 Go 1.18.1
-proj-taskcluster/windows2012r2-amd64-ci:                                   generic-worker multiuser engine 44.13.4 (revision 5d5f3ab277038997cd0b846424445ce525b528b2) windows amd64 Go 1.18.1
+proj-taskcluster/gw-ci-ubuntu-18-04-staging:                               generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) linux amd64 Go 1.19.2
+proj-taskcluster/gw-ci-ubuntu-18-04:                                       generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) linux amd64 Go 1.18.5
+proj-taskcluster/gw-ci-windows2012r2-amd64-staging:                        generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-taskcluster/gw-ci-windows2012r2-amd64:                                generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-taskcluster/gw-ubuntu-20-04-staging:                                  generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) linux amd64 Go 1.19.2
+proj-taskcluster/gw-windows-2022:                                          generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
+proj-taskcluster/release:                                                  generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) linux amd64 Go 1.18.5
+proj-taskcluster/windows2012r2-amd64-ci:                                   generic-worker multiuser engine 44.21.0 (revision 4ae6f591d9d5d37f9cc1b07bd774a441c3b0e458) windows amd64 Go 1.18.5
 ```
 
 ## Docker worker
 
 ```
+proj-taskcluster/aws-test:                                                 docker-worker - version 38.0.4
 proj-bergamot/ci-linux:                                                    docker-worker - version 38.0.5
 proj-bors-ng/ci:                                                           docker-worker - version 38.0.5
 proj-bugbug/batch:                                                         docker-worker - version 38.0.5
@@ -43,7 +45,6 @@ proj-fuzzing/bugmon-processor:                                             docke
 proj-fuzzing/ci:                                                           docker-worker - version 38.0.5
 proj-fuzzing/grizzly-reduce-monitor:                                       docker-worker - version 38.0.5
 proj-fuzzing/grizzly-reduce-worker-android:                                docker-worker - version 38.0.5
-proj-fuzzing/grizzly-reduce-worker:                                        docker-worker - version 38.0.5
 proj-fuzzing/linux-pool10:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool11:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool12:                                                 docker-worker - version 38.0.5
@@ -81,7 +82,6 @@ proj-fuzzing/linux-pool41:                                                 docke
 proj-fuzzing/linux-pool42:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool43:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool44:                                                 docker-worker - version 38.0.5
-proj-fuzzing/linux-pool45:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool46:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool47:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool48:                                                 docker-worker - version 38.0.5
@@ -110,6 +110,10 @@ proj-fuzzing/linux-pool76:                                                 docke
 proj-fuzzing/linux-pool77:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool78:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool7:                                                  docker-worker - version 38.0.5
+proj-fuzzing/linux-pool80:                                                 docker-worker - version 38.0.5
+proj-fuzzing/linux-pool82:                                                 docker-worker - version 38.0.5
+proj-fuzzing/linux-pool83:                                                 docker-worker - version 38.0.5
+proj-fuzzing/linux-pool84:                                                 docker-worker - version 38.0.5
 proj-fuzzing/linux-pool8:                                                  docker-worker - version 38.0.5
 proj-fuzzing/linux-pool9:                                                  docker-worker - version 38.0.5
 proj-git-cinnabar/ci:                                                      docker-worker - version 38.0.5
@@ -122,7 +126,6 @@ proj-mozci/compute-smaller:                                                docke
 proj-mwz/testing:                                                          docker-worker - version 38.0.5
 proj-releng/ci:                                                            docker-worker - version 38.0.5
 proj-relman/ci:                                                            docker-worker - version 38.0.5
-proj-taskcluster/aws-test:                                                 docker-worker - version 38.0.4
 proj-taskcluster/ci:                                                       docker-worker - version 38.0.5
 proj-taskcluster/dw-ci:                                                    docker-worker - version 38.0.5
 proj-taskcluster/gcp-test:                                                 docker-worker - version 38.0.5
@@ -138,8 +141,10 @@ built-in/fail:                                                             No ar
 built-in/succeed:                                                          No artifacts found
 ```
 
-# Version not determined; probing task remains pending after 90 minutes.
+# Version not determined (task not claimed within 10 mins)
 
 ```
-proj-git-cinnabar/osx
+proj-fuzzing/ci-osx
+proj-fuzzing/grizzly-reduce-worker
+proj-fuzzing/linux-pool45
 ```

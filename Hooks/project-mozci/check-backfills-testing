@@ -8,11 +8,12 @@
     "owner": "mcastelluccio@mozilla.com"
   },
   "schedule": [
-    "*/5 * * * *"
+    "0 */6 * * *"
   ],
   "task": {
     "scopes": [
-      "assume:hook-id:project-mozci/check-backfills-testing"
+      "assume:hook-id:project-mozci/check-backfills-testing",
+      "index:insert-task:project.mozci.check-backfill.testing.*"
     ],
     "payload": {
       "env": {
@@ -25,7 +26,7 @@
       },
       "command": [
         "check-backfills",
-        "--nb-pushes=20",
+        "--nb-pushes=10",
         "--environment=testing"
       ],
       "features": {

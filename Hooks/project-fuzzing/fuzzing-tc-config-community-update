@@ -1,0 +1,84 @@
+{
+  "bindings": [
+    {
+      "exchange": "exchange/taskcluster-github/v1/push",
+      "routingKeyPattern": "primary.mozilla.community-tc-config"
+    }
+  ],
+  "hookGroupId": "project-fuzzing",
+  "hookId": "fuzzing-tc-config-community-update",
+  "metadata": {
+    "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nRun Fuzzing pool rebuild when Community-TC config changes",
+    "emailOnError": true,
+    "name": "fuzzing-tc-config-community-update",
+    "owner": "truber@mozilla.com"
+  },
+  "schedule": [],
+  "task": {
+    "scopes": [
+      "assume:hook-id:project-fuzzing/linux-pool*",
+      "assume:hook-id:project-fuzzing/macos-pool*",
+      "assume:hook-id:project-fuzzing/windows-pool*",
+      "auth:create-role:hook-id:project-fuzzing/*",
+      "auth:delete-role:hook-id:project-fuzzing/*",
+      "auth:update-role:hook-id:project-fuzzing/*",
+      "docker-worker:capability:device:hostSharedMemory",
+      "docker-worker:capability:device:loopbackAudio",
+      "docker-worker:capability:privileged",
+      "generic-worker:os-group:proj-fuzzing/*",
+      "generic-worker:run-as-administrator:proj-fuzzing/*",
+      "hooks:modify-hook:project-fuzzing/*",
+      "hooks:trigger-hook:project-fuzzing/*",
+      "queue:cancel-task:-/*",
+      "queue:create-task:highest:proj-fuzzing/*",
+      "secrets:get:project/fuzzing/*",
+      "worker-manager:manage-worker-pool:proj-fuzzing/*",
+      "worker-manager:provider:community-tc-workers-*"
+    ],
+    "payload": {
+      "env": {
+        "TASKCLUSTER_SECRET": "project/fuzzing/decision",
+        "FUZZING_GIT_REVISION": "master",
+        "FUZZING_GIT_REPOSITORY": "git@github.com:MozillaSecurity/fuzzing-tc-config.git"
+      },
+      "image": {
+        "path": "public/fuzzing-decision.tar.zst",
+        "type": "indexed-image",
+        "namespace": "project.fuzzing.orion.fuzzing-decision.master"
+      },
+      "command": [
+        "/bin/sh",
+        "-l",
+        "-e",
+        "-x",
+        "-c",
+        "tc-admin apply --grep Role; tc-admin apply --grep WorkerPool; tc-admin apply;"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "maxRunTime": 3600
+    },
+    "deadline": {
+      "$fromNow": "2 hours"
+    },
+    "metadata": {
+      "name": "Fuzzing Taskcluster apply changes",
+      "owner": "truber@mozilla.com",
+      "source": "https://github.com/MozillaSecurity/fuzzing-tc-config",
+      "description": "Apply potential modifications on the taskcluster instance"
+    },
+    "workerType": "ci",
+    "provisionerId": "proj-fuzzing"
+  },
+  "triggerSchema": {
+    "type": "object",
+    "properties": {
+      "branch": {
+        "type": "string",
+        "default": "main"
+      }
+    },
+    "additionalProperties": true
+  }
+}

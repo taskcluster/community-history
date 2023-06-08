@@ -1,0 +1,67 @@
+{
+  "hookGroupId": "project-bugbug",
+  "hookId": "bugbug",
+  "metadata": {
+    "description": "",
+    "emailOnError": true,
+    "name": "BugBug data pipeline",
+    "owner": "mcastelluccio@mozilla.com"
+  },
+  "schedule": [
+    "0 0 1,16 * *"
+  ],
+  "task": {
+    "tags": {},
+    "extra": {},
+    "routes": [
+      "notify.email.release-mgmt-analysis@mozilla.com.on-failed",
+      "notify.irc-channel.#bugbug.on-failed",
+      "index.project.bugbug.data-pipeline-start"
+    ],
+    "scopes": [
+      "assume:hook-id:project-bugbug/bugbug"
+    ],
+    "created": {
+      "$fromNow": "0 seconds"
+    },
+    "expires": {
+      "$fromNow": "1 month"
+    },
+    "payload": {
+      "env": {
+        "TAG": "v0.0.504"
+      },
+      "cache": {},
+      "image": "mozilla/bugbug-spawn-pipeline:v0.0.504",
+      "command": [
+        "/usr/local/bin/python3",
+        "/code/spawn_pipeline.py",
+        "/code/data-pipeline.yml"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {},
+      "maxRunTime": 7200,
+      "capabilities": {}
+    },
+    "retries": 5,
+    "deadline": {
+      "$fromNow": "2 hours"
+    },
+    "metadata": {
+      "name": "BugBug data pipeline",
+      "owner": "mcastelluccio@mozilla.com",
+      "source": "https://github.com/mozilla/bugbug",
+      "description": ""
+    },
+    "priority": "normal",
+    "workerType": "batch",
+    "schedulerId": "-",
+    "provisionerId": "proj-bugbug"
+  },
+  "triggerSchema": {
+    "type": "object",
+    "additionalProperties": false
+  }
+}

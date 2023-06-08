@@ -1,0 +1,58 @@
+{
+  "hookGroupId": "project-fuzzing",
+  "hookId": "covdiff",
+  "metadata": {
+    "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nHook for downloading, merging, and submitting Mozilla CI coverage reports",
+    "emailOnError": true,
+    "name": "covdiff",
+    "owner": "jkratzer@mozilla.com"
+  },
+  "schedule": [
+    "0 10 * * 1"
+  ],
+  "task": {
+    "routes": [
+      "notify.email.jkratzer@mozilla.com.on-failed"
+    ],
+    "scopes": [
+      "docker-worker:capability:privileged",
+      "queue:get-artifact:project/fuzzing/covdiff/*",
+      "queue:route:notify.email.jkratzer@mozilla.com.on-failed",
+      "queue:scheduler-id:-",
+      "secrets:get:project/fuzzing/fuzzmanagerconf",
+      "secrets:get:project/fuzzing/moz-ci-coverage-key"
+    ],
+    "expires": {
+      "$fromNow": "1 months"
+    },
+    "payload": {
+      "image": {
+        "path": "public/covdiff.tar.zst",
+        "type": "indexed-image",
+        "namespace": "project.fuzzing.orion.covdiff.master"
+      },
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {
+        "project/fuzzing/covdiff": {
+          "path": "/live.log",
+          "type": "file"
+        }
+      },
+      "maxRunTime": 10800
+    },
+    "deadline": {
+      "$fromNow": "6 hours"
+    },
+    "metadata": {
+      "name": "covdiff",
+      "owner": "jkratzer@mozilla.com",
+      "source": "https://github.com/MozillaSecurity/covdiff",
+      "description": "Hook for downloading, merging, and submitting Mozilla CI coverage reports"
+    },
+    "workerType": "ci",
+    "provisionerId": "proj-fuzzing"
+  },
+  "triggerSchema": {}
+}

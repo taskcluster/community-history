@@ -1,0 +1,54 @@
+{
+  "hookGroupId": "project-fuzzing",
+  "hookId": "coverage-revision",
+  "metadata": {
+    "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nHook for pinning m-c revision for periodic fuzzing coverage tasks",
+    "emailOnError": true,
+    "name": "coverage-revision",
+    "owner": "fuzzing@mozilla.com"
+  },
+  "schedule": [
+    "0 0 * * 1"
+  ],
+  "task": {
+    "routes": [
+      "index.project.fuzzing.coverage-revision.latest",
+      "notify.email.fuzzing@mozilla.com.on-failed"
+    ],
+    "scopes": [
+      "queue:route:index.project.fuzzing.coverage-revision.latest",
+      "queue:route:notify.email.fuzzing@mozilla.com.on-failed",
+      "queue:scheduler-id:fuzzing"
+    ],
+    "expires": {
+      "$fromNow": "4 weeks"
+    },
+    "payload": {
+      "image": {
+        "path": "public/coverage-revision.tar.zst",
+        "type": "indexed-image",
+        "namespace": "project.fuzzing.orion.coverage-revision.master"
+      },
+      "artifacts": {
+        "public/coverage-revision.txt": {
+          "path": "/coverage-revision.txt",
+          "type": "file"
+        }
+      },
+      "maxRunTime": 600
+    },
+    "deadline": {
+      "$fromNow": "3 hours"
+    },
+    "metadata": {
+      "name": "coverage-revision",
+      "owner": "fuzzing@mozilla.com",
+      "source": "https://github.com/MozillaSecurity",
+      "description": "Hook for pinning m-c revision for periodic fuzzing coverage tasks"
+    },
+    "workerType": "ci",
+    "schedulerId": "fuzzing",
+    "provisionerId": "proj-fuzzing"
+  },
+  "triggerSchema": {}
+}

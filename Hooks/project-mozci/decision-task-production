@@ -1,0 +1,43 @@
+{
+  "hookGroupId": "project-mozci",
+  "hookId": "decision-task-production",
+  "metadata": {
+    "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nRun mozci classification tasks for new pushes",
+    "emailOnError": true,
+    "name": "decision-task-production",
+    "owner": "mcastelluccio@mozilla.com"
+  },
+  "schedule": [
+    "*/10 * * * *"
+  ],
+  "task": {
+    "scopes": [
+      "assume:hook-id:project-mozci/decision-task-production"
+    ],
+    "payload": {
+      "image": {
+        "path": "public/mozci.tar.zst",
+        "type": "indexed-image",
+        "namespace": "project.mozci.docker.branch.production"
+      },
+      "command": [
+        "decision",
+        "autoland",
+        "--environment=production"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "maxRunTime": 1800
+    },
+    "metadata": {
+      "name": "mozci decision task - production",
+      "owner": "mcastelluccio@mozilla.com",
+      "source": "https://github.com/mozilla/mozci",
+      "description": "mozci decision task"
+    },
+    "workerType": "compute-smaller",
+    "provisionerId": "proj-mozci"
+  },
+  "triggerSchema": {}
+}

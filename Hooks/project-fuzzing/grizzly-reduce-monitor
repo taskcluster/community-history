@@ -1,0 +1,69 @@
+{
+  "hookGroupId": "project-fuzzing",
+  "hookId": "grizzly-reduce-monitor",
+  "metadata": {
+    "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nHook for triggering Grizzly reduce monitor tasks",
+    "emailOnError": true,
+    "name": "grizzly-reduce-monitor",
+    "owner": "truber@mozilla.com"
+  },
+  "schedule": [
+    "0 */2 * * *"
+  ],
+  "task": {
+    "routes": [
+      "notify.email.truber@mozilla.com.on-failed"
+    ],
+    "scopes": [
+      "docker-worker:capability:device:hostSharedMemory",
+      "docker-worker:capability:device:loopbackAudio",
+      "docker-worker:capability:privileged",
+      "generic-worker:os-group:proj-fuzzing/grizzly-reduce-worker-windows/Administrators",
+      "generic-worker:run-as-administrator:proj-fuzzing/grizzly-reduce-worker-windows",
+      "queue:create-task:highest:proj-fuzzing/grizzly-reduce-worker*",
+      "queue:route:notify.email.truber@mozilla.com.on-failed",
+      "queue:scheduler-id:fuzzing",
+      "secrets:get:project/fuzzing/deploy-bearspray",
+      "secrets:get:project/fuzzing/deploy-grizzly-private",
+      "secrets:get:project/fuzzing/fuzzmanagerconf",
+      "secrets:get:project/fuzzing/google-logging-creds",
+      "secrets:get:project/fuzzing/grizzly-reduce-tool-list"
+    ],
+    "expires": {
+      "$fromNow": "2 weeks"
+    },
+    "payload": {
+      "image": {
+        "path": "public/grizzly-reduce-monitor.tar.zst",
+        "type": "indexed-image",
+        "namespace": "project.fuzzing.orion.grizzly-reduce-monitor.master"
+      },
+      "command": [
+        "/usr/bin/grizzly-reduce-tc-monitor"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "artifacts": {
+        "project/fuzzing/private/logs": {
+          "path": "/logs/",
+          "type": "directory"
+        }
+      },
+      "maxRunTime": 3600
+    },
+    "deadline": {
+      "$fromNow": "3 hours"
+    },
+    "metadata": {
+      "name": "grizzly-reduce-monitor",
+      "owner": "truber@mozilla.com",
+      "source": "https://github.com/MozillaSecurity/grizzly",
+      "description": "Create grizzly testcases reduction tasks"
+    },
+    "workerType": "grizzly-reduce-monitor",
+    "schedulerId": "fuzzing",
+    "provisionerId": "proj-fuzzing"
+  },
+  "triggerSchema": {}
+}

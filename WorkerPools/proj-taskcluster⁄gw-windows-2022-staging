@@ -1,12 +1,12 @@
 {
   "config": {
-    "maxCapacity": 3,
+    "maxCapacity": 10,
     "minCapacity": 0,
     "launchConfigs": [
       {
-        "location": "eastus",
+        "location": "centralus",
         "priority": "spot",
-        "subnetId": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-eastus/subnets/default",
+        "subnetId": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-centralus/subnets/default",
         "osProfile": {
           "windowsConfiguration": {
             "timeZone": "UTC",
@@ -17,13 +17,13 @@
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "829d239aa78b437c",
+              "deploymentId": "6dc28a9451ef8b47",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "idleTimeoutSecs": 15,
+              "idleTimeoutSecs": 3600,
               "livelogExecutable": "C:\\generic-worker\\livelog.exe",
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://github.com/taskcluster/community-tc-config/blob/756748c1a84f4e09f0f4ba4f8ceb09b43c62e493/imagesets/generic-worker-win2022-gpu/bootstrap.ps1",
+                  "script": "https://github.com/taskcluster/community-tc-config/blob/4ec663a52f9b4fc5db362dca67157da243b167e3/imagesets/generic-worker-win2022-staging/bootstrap.ps1",
                   "maintainer": "pmoore@mozilla.com"
                 }
               },
@@ -45,11 +45,61 @@
             }
           },
           "imageReference": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-c6gctlmepvhx594lmbm4-eastus"
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-y34zruku88eve1talx1i-centralus"
           }
         },
         "hardwareProfile": {
-          "vmSize": "Standard_NV12s_v3"
+          "vmSize": "Standard_F16s_v2"
+        },
+        "capacityPerInstance": 1
+      },
+      {
+        "location": "eastus",
+        "priority": "spot",
+        "subnetId": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-eastus/subnets/default",
+        "osProfile": {
+          "windowsConfiguration": {
+            "timeZone": "UTC",
+            "enableAutomaticUpdates": false
+          }
+        },
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "wstAudience": "communitytc",
+              "deploymentId": "6dc28a9451ef8b47",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "idleTimeoutSecs": 3600,
+              "livelogExecutable": "C:\\generic-worker\\livelog.exe",
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://github.com/taskcluster/community-tc-config/blob/4ec663a52f9b4fc5db362dca67157da243b167e3/imagesets/generic-worker-win2022-staging/bootstrap.ps1",
+                  "maintainer": "pmoore@mozilla.com"
+                }
+              },
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "C:\\generic-worker\\generic-worker-ed25519-signing-key.key",
+              "taskclusterProxyExecutable": "C:\\generic-worker\\taskcluster-proxy.exe",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "evictionPolicy": "Delete",
+        "storageProfile": {
+          "osDisk": {
+            "osType": "Windows",
+            "caching": "ReadOnly",
+            "createOption": "FromImage",
+            "diffDiskSettings": {
+              "option": "Local"
+            }
+          },
+          "imageReference": {
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-y34zruku88eve1talx1i-eastus"
+          }
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_F16s_v2"
         },
         "capacityPerInstance": 1
       },
@@ -67,13 +117,13 @@
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "829d239aa78b437c",
+              "deploymentId": "6dc28a9451ef8b47",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "idleTimeoutSecs": 15,
+              "idleTimeoutSecs": 3600,
               "livelogExecutable": "C:\\generic-worker\\livelog.exe",
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://github.com/taskcluster/community-tc-config/blob/756748c1a84f4e09f0f4ba4f8ceb09b43c62e493/imagesets/generic-worker-win2022-gpu/bootstrap.ps1",
+                  "script": "https://github.com/taskcluster/community-tc-config/blob/4ec663a52f9b4fc5db362dca67157da243b167e3/imagesets/generic-worker-win2022-staging/bootstrap.ps1",
                   "maintainer": "pmoore@mozilla.com"
                 }
               },
@@ -95,11 +145,61 @@
             }
           },
           "imageReference": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-c6gctlmepvhx594lmbm4-eastus2"
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-y34zruku88eve1talx1i-eastus2"
           }
         },
         "hardwareProfile": {
-          "vmSize": "Standard_NV12s_v3"
+          "vmSize": "Standard_F16s_v2"
+        },
+        "capacityPerInstance": 1
+      },
+      {
+        "location": "northcentralus",
+        "priority": "spot",
+        "subnetId": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-northcentralus/subnets/default",
+        "osProfile": {
+          "windowsConfiguration": {
+            "timeZone": "UTC",
+            "enableAutomaticUpdates": false
+          }
+        },
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "wstAudience": "communitytc",
+              "deploymentId": "6dc28a9451ef8b47",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "idleTimeoutSecs": 3600,
+              "livelogExecutable": "C:\\generic-worker\\livelog.exe",
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://github.com/taskcluster/community-tc-config/blob/4ec663a52f9b4fc5db362dca67157da243b167e3/imagesets/generic-worker-win2022-staging/bootstrap.ps1",
+                  "maintainer": "pmoore@mozilla.com"
+                }
+              },
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "C:\\generic-worker\\generic-worker-ed25519-signing-key.key",
+              "taskclusterProxyExecutable": "C:\\generic-worker\\taskcluster-proxy.exe",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "evictionPolicy": "Delete",
+        "storageProfile": {
+          "osDisk": {
+            "osType": "Windows",
+            "caching": "ReadOnly",
+            "createOption": "FromImage",
+            "diffDiskSettings": {
+              "option": "Local"
+            }
+          },
+          "imageReference": {
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-y34zruku88eve1talx1i-northcentralus"
+          }
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_F16s_v2"
         },
         "capacityPerInstance": 1
       },
@@ -117,13 +217,13 @@
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "829d239aa78b437c",
+              "deploymentId": "6dc28a9451ef8b47",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "idleTimeoutSecs": 15,
+              "idleTimeoutSecs": 3600,
               "livelogExecutable": "C:\\generic-worker\\livelog.exe",
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://github.com/taskcluster/community-tc-config/blob/756748c1a84f4e09f0f4ba4f8ceb09b43c62e493/imagesets/generic-worker-win2022-gpu/bootstrap.ps1",
+                  "script": "https://github.com/taskcluster/community-tc-config/blob/4ec663a52f9b4fc5db362dca67157da243b167e3/imagesets/generic-worker-win2022-staging/bootstrap.ps1",
                   "maintainer": "pmoore@mozilla.com"
                 }
               },
@@ -145,11 +245,11 @@
             }
           },
           "imageReference": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-c6gctlmepvhx594lmbm4-southcentralus"
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-y34zruku88eve1talx1i-southcentralus"
           }
         },
         "hardwareProfile": {
-          "vmSize": "Standard_NV12s_v3"
+          "vmSize": "Standard_F16s_v2"
         },
         "capacityPerInstance": 1
       },
@@ -167,13 +267,13 @@
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "829d239aa78b437c",
+              "deploymentId": "6dc28a9451ef8b47",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "idleTimeoutSecs": 15,
+              "idleTimeoutSecs": 3600,
               "livelogExecutable": "C:\\generic-worker\\livelog.exe",
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://github.com/taskcluster/community-tc-config/blob/756748c1a84f4e09f0f4ba4f8ceb09b43c62e493/imagesets/generic-worker-win2022-gpu/bootstrap.ps1",
+                  "script": "https://github.com/taskcluster/community-tc-config/blob/4ec663a52f9b4fc5db362dca67157da243b167e3/imagesets/generic-worker-win2022-staging/bootstrap.ps1",
                   "maintainer": "pmoore@mozilla.com"
                 }
               },
@@ -195,11 +295,11 @@
             }
           },
           "imageReference": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-c6gctlmepvhx594lmbm4-westus"
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-y34zruku88eve1talx1i-westus"
           }
         },
         "hardwareProfile": {
-          "vmSize": "Standard_NV12s_v3"
+          "vmSize": "Standard_F16s_v2"
         },
         "capacityPerInstance": 1
       },
@@ -217,13 +317,13 @@
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "829d239aa78b437c",
+              "deploymentId": "6dc28a9451ef8b47",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "idleTimeoutSecs": 15,
+              "idleTimeoutSecs": 3600,
               "livelogExecutable": "C:\\generic-worker\\livelog.exe",
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://github.com/taskcluster/community-tc-config/blob/756748c1a84f4e09f0f4ba4f8ceb09b43c62e493/imagesets/generic-worker-win2022-gpu/bootstrap.ps1",
+                  "script": "https://github.com/taskcluster/community-tc-config/blob/4ec663a52f9b4fc5db362dca67157da243b167e3/imagesets/generic-worker-win2022-staging/bootstrap.ps1",
                   "maintainer": "pmoore@mozilla.com"
                 }
               },
@@ -245,30 +345,30 @@
             }
           },
           "imageReference": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-c6gctlmepvhx594lmbm4-westus2"
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-y34zruku88eve1talx1i-westus2"
           }
         },
         "hardwareProfile": {
-          "vmSize": "Standard_NV12s_v3"
+          "vmSize": "Standard_F16s_v2"
         },
         "capacityPerInstance": 1
       }
     ]
   },
-  "created": "2024-06-06T11:50:21.113Z",
+  "created": "2024-06-19T21:53:26.985Z",
   "currentCapacity": 0,
   "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nWorkers for taskcluster",
   "emailOnError": true,
-  "lastModified": "2024-06-21T07:36:55.774Z",
+  "lastModified": "2024-06-20T21:32:53.671Z",
   "owner": "taskcluster-notifications+workers@mozilla.com",
   "providerId": "community-tc-workers-azure",
   "requestedCapacity": 0,
   "requestedCount": 0,
   "runningCapacity": 0,
   "runningCount": 0,
-  "stoppedCapacity": 328,
-  "stoppedCount": 328,
+  "stoppedCapacity": 4,
+  "stoppedCount": 4,
   "stoppingCapacity": 0,
   "stoppingCount": 0,
-  "workerPoolId": "proj-taskcluster/gw-windows-2022-gpu"
+  "workerPoolId": "proj-taskcluster/gw-windows-2022-staging"
 }

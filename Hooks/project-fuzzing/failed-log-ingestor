@@ -1,0 +1,86 @@
+{
+  "bindings": [
+    {
+      "exchange": "exchange/taskcluster-queue/v1/task-failed",
+      "routingKeyPattern": "primary.#.proj-fuzzing.#"
+    }
+  ],
+  "hookGroupId": "project-fuzzing",
+  "hookId": "failed-log-ingestor",
+  "metadata": {
+    "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nHook for ingesting livelogs from failed fuzzing tasks for bucketing",
+    "emailOnError": true,
+    "name": "failed-log-ingestor",
+    "owner": "truber@mozilla.com"
+  },
+  "schedule": [],
+  "task": {
+    "routes": [
+      "notify.email.truber@mozilla.com.on-failed"
+    ],
+    "scopes": [
+      "queue:route:notify.email.truber@mozilla.com.on-failed",
+      "queue:scheduler-id:fuzzing",
+      "secrets:get:project/fuzzing/fuzzmanagerconf"
+    ],
+    "expires": {
+      "$fromNow": "2 weeks"
+    },
+    "payload": {
+      "image": {
+        "path": "public/failed-log-ingestor.tar.zst",
+        "type": "indexed-image",
+        "namespace": "project.fuzzing.orion.failed-log-ingestor.master"
+      },
+      "command": [
+        "ingest",
+        "--task-id",
+        "${payload.status.taskId}",
+        "--run-id",
+        "${payload.runId}"
+      ],
+      "features": {
+        "taskclusterProxy": true
+      },
+      "maxRunTime": 600
+    },
+    "deadline": {
+      "$fromNow": "1 hour"
+    },
+    "metadata": {
+      "name": "failed-log-ingestor",
+      "owner": "truber@mozilla.com",
+      "source": "https://github.com/MozillaSecurity/orion",
+      "description": "Ingest logs from failed fuzzing tasks"
+    },
+    "workerType": "decision",
+    "schedulerId": "fuzzing",
+    "provisionerId": "proj-fuzzing"
+  },
+  "triggerSchema": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "object",
+        "properties": {
+          "workerType": {
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "^ci.*"
+                },
+                {
+                  "const": "decision"
+                },
+                {
+                  "pattern": "^grizzly-reduce.*"
+                }
+              ]
+            },
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,9 +12,9 @@
         "region": "us-west-2",
         "launchConfig": {
           "ImageId": "ami-01c1d516b84122484",
-          "SubnetId": "subnet-0fc336d9e5934c913",
+          "SubnetId": "subnet-05053e2898fc744e9",
           "Placement": {
-            "AvailabilityZone": "us-west-2d"
+            "AvailabilityZone": "us-west-2b"
           },
           "InstanceType": "c5.metal",
           "SecurityGroupIds": [
@@ -60,7 +60,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-b2f016c4f942695e4a60"
+          "launchConfigId": "lc-3e643f3d332e5c5c502c"
         },
         "capacityPerInstance": 1
       },
@@ -68,9 +68,9 @@
         "region": "us-west-2",
         "launchConfig": {
           "ImageId": "ami-01c1d516b84122484",
-          "SubnetId": "subnet-048a61782df5ba378",
+          "SubnetId": "subnet-0fc336d9e5934c913",
           "Placement": {
-            "AvailabilityZone": "us-west-2a"
+            "AvailabilityZone": "us-west-2d"
           },
           "InstanceType": "c7i.metal-24xl",
           "SecurityGroupIds": [
@@ -116,7 +116,63 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-317377604b8e1f0e691d"
+          "launchConfigId": "lc-0722b9435d9871c4f95d"
+        },
+        "capacityPerInstance": 1
+      },
+      {
+        "region": "us-west-1",
+        "launchConfig": {
+          "ImageId": "ami-078e063e33e840c4e",
+          "SubnetId": "subnet-0a5344f7003aede7c",
+          "Placement": {
+            "AvailabilityZone": "us-west-1b"
+          },
+          "InstanceType": "m5.metal",
+          "SecurityGroupIds": [
+            "sg-00c4014bc978171d5"
+          ],
+          "BlockDeviceMappings": [
+            {
+              "Ebs": {
+                "VolumeSize": 100,
+                "VolumeType": "gp3",
+                "DeleteOnTermination": true
+              },
+              "DeviceName": "/dev/sda1"
+            }
+          ],
+          "InstanceMarketOptions": {
+            "MarketType": "spot"
+          }
+        },
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "d2gConfig": {
+                "enableD2G": true
+              },
+              "wstAudience": "communitytc",
+              "deploymentId": "523220696f7bf14e",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "maxTaskRunTime": 259200,
+              "idleTimeoutSecs": 15,
+              "enableInteractive": true,
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/7abe3a020de571b9a9a33be380498ae027ec4756/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
+                }
+              },
+              "disableOOMProtection": true,
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-edec0635c3d321a09a95"
         },
         "capacityPerInstance": 1
       },
@@ -173,62 +229,6 @@
         },
         "workerManager": {
           "launchConfigId": "lc-5fc9d4a12f1b83488156"
-        },
-        "capacityPerInstance": 1
-      },
-      {
-        "region": "us-west-2",
-        "launchConfig": {
-          "ImageId": "ami-01c1d516b84122484",
-          "SubnetId": "subnet-05053e2898fc744e9",
-          "Placement": {
-            "AvailabilityZone": "us-west-2b"
-          },
-          "InstanceType": "c5.metal",
-          "SecurityGroupIds": [
-            "sg-0659c2937ecbe7254"
-          ],
-          "BlockDeviceMappings": [
-            {
-              "Ebs": {
-                "VolumeSize": 100,
-                "VolumeType": "gp3",
-                "DeleteOnTermination": true
-              },
-              "DeviceName": "/dev/sda1"
-            }
-          ],
-          "InstanceMarketOptions": {
-            "MarketType": "spot"
-          }
-        },
-        "workerConfig": {
-          "genericWorker": {
-            "config": {
-              "d2gConfig": {
-                "enableD2G": true
-              },
-              "wstAudience": "communitytc",
-              "deploymentId": "523220696f7bf14e",
-              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "maxTaskRunTime": 259200,
-              "idleTimeoutSecs": 15,
-              "enableInteractive": true,
-              "workerTypeMetadata": {
-                "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/7abe3a020de571b9a9a33be380498ae027ec4756/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
-                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
-                }
-              },
-              "disableOOMProtection": true,
-              "shutdownMachineOnIdle": true,
-              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
-              "shutdownMachineOnInternalError": true
-            }
-          }
-        },
-        "workerManager": {
-          "launchConfigId": "lc-3e643f3d332e5c5c502c"
         },
         "capacityPerInstance": 1
       },
@@ -348,6 +348,118 @@
         "region": "us-west-2",
         "launchConfig": {
           "ImageId": "ami-01c1d516b84122484",
+          "SubnetId": "subnet-0fc336d9e5934c913",
+          "Placement": {
+            "AvailabilityZone": "us-west-2d"
+          },
+          "InstanceType": "c5.metal",
+          "SecurityGroupIds": [
+            "sg-0659c2937ecbe7254"
+          ],
+          "BlockDeviceMappings": [
+            {
+              "Ebs": {
+                "VolumeSize": 100,
+                "VolumeType": "gp3",
+                "DeleteOnTermination": true
+              },
+              "DeviceName": "/dev/sda1"
+            }
+          ],
+          "InstanceMarketOptions": {
+            "MarketType": "spot"
+          }
+        },
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "d2gConfig": {
+                "enableD2G": true
+              },
+              "wstAudience": "communitytc",
+              "deploymentId": "523220696f7bf14e",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "maxTaskRunTime": 259200,
+              "idleTimeoutSecs": 15,
+              "enableInteractive": true,
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/7abe3a020de571b9a9a33be380498ae027ec4756/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
+                }
+              },
+              "disableOOMProtection": true,
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-b2f016c4f942695e4a60"
+        },
+        "capacityPerInstance": 1
+      },
+      {
+        "region": "us-west-2",
+        "launchConfig": {
+          "ImageId": "ami-01c1d516b84122484",
+          "SubnetId": "subnet-048a61782df5ba378",
+          "Placement": {
+            "AvailabilityZone": "us-west-2a"
+          },
+          "InstanceType": "c7i.metal-24xl",
+          "SecurityGroupIds": [
+            "sg-0659c2937ecbe7254"
+          ],
+          "BlockDeviceMappings": [
+            {
+              "Ebs": {
+                "VolumeSize": 100,
+                "VolumeType": "gp3",
+                "DeleteOnTermination": true
+              },
+              "DeviceName": "/dev/sda1"
+            }
+          ],
+          "InstanceMarketOptions": {
+            "MarketType": "spot"
+          }
+        },
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "d2gConfig": {
+                "enableD2G": true
+              },
+              "wstAudience": "communitytc",
+              "deploymentId": "523220696f7bf14e",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "maxTaskRunTime": 259200,
+              "idleTimeoutSecs": 15,
+              "enableInteractive": true,
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/7abe3a020de571b9a9a33be380498ae027ec4756/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
+                }
+              },
+              "disableOOMProtection": true,
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-317377604b8e1f0e691d"
+        },
+        "capacityPerInstance": 1
+      },
+      {
+        "region": "us-west-2",
+        "launchConfig": {
+          "ImageId": "ami-01c1d516b84122484",
           "SubnetId": "subnet-036a0812d241733ef",
           "Placement": {
             "AvailabilityZone": "us-west-2c"
@@ -397,118 +509,6 @@
         },
         "workerManager": {
           "launchConfigId": "lc-0840c4771f3cb9a12575"
-        },
-        "capacityPerInstance": 1
-      },
-      {
-        "region": "us-west-2",
-        "launchConfig": {
-          "ImageId": "ami-01c1d516b84122484",
-          "SubnetId": "subnet-0fc336d9e5934c913",
-          "Placement": {
-            "AvailabilityZone": "us-west-2d"
-          },
-          "InstanceType": "c7i.metal-24xl",
-          "SecurityGroupIds": [
-            "sg-0659c2937ecbe7254"
-          ],
-          "BlockDeviceMappings": [
-            {
-              "Ebs": {
-                "VolumeSize": 100,
-                "VolumeType": "gp3",
-                "DeleteOnTermination": true
-              },
-              "DeviceName": "/dev/sda1"
-            }
-          ],
-          "InstanceMarketOptions": {
-            "MarketType": "spot"
-          }
-        },
-        "workerConfig": {
-          "genericWorker": {
-            "config": {
-              "d2gConfig": {
-                "enableD2G": true
-              },
-              "wstAudience": "communitytc",
-              "deploymentId": "523220696f7bf14e",
-              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "maxTaskRunTime": 259200,
-              "idleTimeoutSecs": 15,
-              "enableInteractive": true,
-              "workerTypeMetadata": {
-                "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/7abe3a020de571b9a9a33be380498ae027ec4756/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
-                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
-                }
-              },
-              "disableOOMProtection": true,
-              "shutdownMachineOnIdle": true,
-              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
-              "shutdownMachineOnInternalError": true
-            }
-          }
-        },
-        "workerManager": {
-          "launchConfigId": "lc-0722b9435d9871c4f95d"
-        },
-        "capacityPerInstance": 1
-      },
-      {
-        "region": "us-west-1",
-        "launchConfig": {
-          "ImageId": "ami-078e063e33e840c4e",
-          "SubnetId": "subnet-0a5344f7003aede7c",
-          "Placement": {
-            "AvailabilityZone": "us-west-1b"
-          },
-          "InstanceType": "m5.metal",
-          "SecurityGroupIds": [
-            "sg-00c4014bc978171d5"
-          ],
-          "BlockDeviceMappings": [
-            {
-              "Ebs": {
-                "VolumeSize": 100,
-                "VolumeType": "gp3",
-                "DeleteOnTermination": true
-              },
-              "DeviceName": "/dev/sda1"
-            }
-          ],
-          "InstanceMarketOptions": {
-            "MarketType": "spot"
-          }
-        },
-        "workerConfig": {
-          "genericWorker": {
-            "config": {
-              "d2gConfig": {
-                "enableD2G": true
-              },
-              "wstAudience": "communitytc",
-              "deploymentId": "523220696f7bf14e",
-              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "maxTaskRunTime": 259200,
-              "idleTimeoutSecs": 15,
-              "enableInteractive": true,
-              "workerTypeMetadata": {
-                "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/7abe3a020de571b9a9a33be380498ae027ec4756/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
-                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
-                }
-              },
-              "disableOOMProtection": true,
-              "shutdownMachineOnIdle": true,
-              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
-              "shutdownMachineOnInternalError": true
-            }
-          }
-        },
-        "workerManager": {
-          "launchConfigId": "lc-edec0635c3d321a09a95"
         },
         "capacityPerInstance": 1
       },
@@ -910,7 +910,7 @@
   "currentCapacity": 0,
   "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nFuzzing resources generated by https://github.com/MozillaSecurity/orion/tree/master/services/fuzzing-decision",
   "emailOnError": true,
-  "lastModified": "2025-05-29T15:33:54.426Z",
+  "lastModified": "2025-06-05T00:32:33.739Z",
   "owner": "truber@mozilla.com",
   "providerId": "community-tc-workers-aws",
   "requestedCapacity": 0,

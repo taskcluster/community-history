@@ -4,20 +4,11 @@
     "minCapacity": 0,
     "launchConfigs": [
       {
-        "location": "eastus",
-        "priority": "spot",
-        "subnetId": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-eastus/subnets/default",
-        "osProfile": {
-          "windowsConfiguration": {
-            "timeZone": "UTC",
-            "enableAutomaticUpdates": false
-          }
-        },
         "workerConfig": {
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "5086de9c5a474390",
+              "deploymentId": "586e12a828ce01a4",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "headlessTasks": true,
               "idleTimeoutSecs": 300,
@@ -35,43 +26,41 @@
             }
           }
         },
-        "workerManager": {
-          "launchConfigId": "lc-db68463402ce160468e6",
-          "capacityPerInstance": 1
-        },
-        "evictionPolicy": "Delete",
-        "storageProfile": {
-          "osDisk": {
-            "osType": "Windows",
-            "caching": "ReadOnly",
-            "createOption": "FromImage",
-            "diffDiskSettings": {
-              "option": "Local"
+        "armDeployment": {
+          "mode": "Incremental",
+          "parameters": {
+            "vmSize": {
+              "value": "Standard_F16s_v2"
+            },
+            "imageId": {
+              "value": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-ieyiypyhrptrvtcobnkc-centralus"
+            },
+            "location": {
+              "value": "centralus"
+            },
+            "priority": {
+              "value": "Spot"
+            },
+            "subnetId": {
+              "value": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-centralus/subnets/default"
             }
           },
-          "imageReference": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-xkcxuvhuvslxxamoqrol-eastus"
+          "templateLink": {
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/templates-rg/providers/Microsoft.Resources/templateSpecs/arm-tpl-test-1/versions/3.0"
           }
         },
-        "hardwareProfile": {
-          "vmSize": "Standard_F16s_v2"
+        "workerManager": {
+          "keepDeployment": true,
+          "launchConfigId": "lc-1bfa8e48b585e91a88e9",
+          "capacityPerInstance": 1
         }
       },
       {
-        "location": "centralus",
-        "priority": "spot",
-        "subnetId": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-centralus/subnets/default",
-        "osProfile": {
-          "windowsConfiguration": {
-            "timeZone": "UTC",
-            "enableAutomaticUpdates": false
-          }
-        },
         "workerConfig": {
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "5086de9c5a474390",
+              "deploymentId": "586e12a828ce01a4",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "headlessTasks": true,
               "idleTimeoutSecs": 300,
@@ -89,26 +78,33 @@
             }
           }
         },
-        "workerManager": {
-          "launchConfigId": "lc-845c994f0dea8ec4a33b",
-          "capacityPerInstance": 1
-        },
-        "evictionPolicy": "Delete",
-        "storageProfile": {
-          "osDisk": {
-            "osType": "Windows",
-            "caching": "ReadOnly",
-            "createOption": "FromImage",
-            "diffDiskSettings": {
-              "option": "Local"
+        "armDeployment": {
+          "mode": "Incremental",
+          "parameters": {
+            "vmSize": {
+              "value": "Standard_F16s_v2"
+            },
+            "imageId": {
+              "value": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-xkcxuvhuvslxxamoqrol-eastus"
+            },
+            "location": {
+              "value": "eastus"
+            },
+            "priority": {
+              "value": "Spot"
+            },
+            "subnetId": {
+              "value": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-eastus/subnets/default"
             }
           },
-          "imageReference": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-ieyiypyhrptrvtcobnkc-centralus"
+          "templateLink": {
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/templates-rg/providers/Microsoft.Resources/templateSpecs/arm-tpl-test-1/versions/3.0"
           }
         },
-        "hardwareProfile": {
-          "vmSize": "Standard_F16s_v2"
+        "workerManager": {
+          "keepDeployment": true,
+          "launchConfigId": "lc-5fefe1f583adb543e61c",
+          "capacityPerInstance": 1
         }
       }
     ]
@@ -117,7 +113,7 @@
   "currentCapacity": 0,
   "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nWorkers for taskcluster",
   "emailOnError": true,
-  "lastModified": "2025-10-21T08:18:01.253Z",
+  "lastModified": "2025-10-31T15:34:35.917Z",
   "owner": "taskcluster-notifications+workers@mozilla.com",
   "providerId": "community-tc-workers-azure",
   "requestedCapacity": 0,

@@ -9,6 +9,65 @@
     "minCapacity": 0,
     "launchConfigs": [
       {
+        "zone": "us-east4-c",
+        "disks": [
+          {
+            "boot": true,
+            "type": "PERSISTENT",
+            "autoDelete": true,
+            "initializeParams": {
+              "diskSizeGb": 60,
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-xexlhdndfrowdsdpnwir"
+            }
+          }
+        ],
+        "region": "us-east4",
+        "scheduling": {
+          "onHostMaintenance": "terminate",
+          "provisioningModel": "SPOT",
+          "instanceTerminationAction": "DELETE"
+        },
+        "machineType": "zones/us-east4-c/machineTypes/c4d-highcpu-8",
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "d2gConfig": {
+                "enableD2G": true
+              },
+              "wstAudience": "communitytc",
+              "deploymentId": "ed60307ed61d8e9f",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "maxTaskRunTime": 259200,
+              "idleTimeoutSecs": 15,
+              "enableInteractive": true,
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
+                }
+              },
+              "disableOOMProtection": true,
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-e7c4ec617261354f174f"
+        },
+        "networkInterfaces": [
+          {
+            "accessConfigs": [
+              {
+                "type": "ONE_TO_ONE_NAT"
+              }
+            ]
+          }
+        ],
+        "capacityPerInstance": 1
+      },
+      {
         "zone": "us-east1-b",
         "disks": [
           {
@@ -17,7 +76,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-kyxthvgmnpkqitfjmupv"
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-xexlhdndfrowdsdpnwir"
             }
           }
         ],
@@ -35,7 +94,7 @@
                 "enableD2G": true
               },
               "wstAudience": "communitytc",
-              "deploymentId": "ed9d1ddc844c34d4",
+              "deploymentId": "ed60307ed61d8e9f",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "maxTaskRunTime": 259200,
               "idleTimeoutSecs": 15,
@@ -54,66 +113,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-0d2150cdb96f02632f6d"
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-central1-b",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-kyxthvgmnpkqitfjmupv"
-            }
-          }
-        ],
-        "region": "us-central1",
-        "scheduling": {
-          "onHostMaintenance": "terminate",
-          "provisioningModel": "SPOT",
-          "instanceTerminationAction": "DELETE"
-        },
-        "machineType": "zones/us-central1-b/machineTypes/c4d-highcpu-8",
-        "workerConfig": {
-          "genericWorker": {
-            "config": {
-              "d2gConfig": {
-                "enableD2G": true
-              },
-              "wstAudience": "communitytc",
-              "deploymentId": "ed9d1ddc844c34d4",
-              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "maxTaskRunTime": 259200,
-              "idleTimeoutSecs": 15,
-              "enableInteractive": true,
-              "workerTypeMetadata": {
-                "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
-                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
-                }
-              },
-              "disableOOMProtection": true,
-              "shutdownMachineOnIdle": true,
-              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
-              "shutdownMachineOnInternalError": true
-            }
-          }
-        },
-        "workerManager": {
-          "launchConfigId": "lc-bd0655eef0716ae037bc"
+          "launchConfigId": "lc-cf7be6342c1369e00427"
         },
         "networkInterfaces": [
           {
@@ -135,7 +135,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-kyxthvgmnpkqitfjmupv"
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-xexlhdndfrowdsdpnwir"
             }
           }
         ],
@@ -153,7 +153,7 @@
                 "enableD2G": true
               },
               "wstAudience": "communitytc",
-              "deploymentId": "ed9d1ddc844c34d4",
+              "deploymentId": "ed60307ed61d8e9f",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "maxTaskRunTime": 259200,
               "idleTimeoutSecs": 15,
@@ -172,7 +172,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-42a2f92adae8baeb70af"
+          "launchConfigId": "lc-c87e89ee8d9f45887e4f"
         },
         "networkInterfaces": [
           {
@@ -194,7 +194,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-kyxthvgmnpkqitfjmupv"
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-xexlhdndfrowdsdpnwir"
             }
           }
         ],
@@ -212,7 +212,7 @@
                 "enableD2G": true
               },
               "wstAudience": "communitytc",
-              "deploymentId": "ed9d1ddc844c34d4",
+              "deploymentId": "ed60307ed61d8e9f",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "maxTaskRunTime": 259200,
               "idleTimeoutSecs": 15,
@@ -231,7 +231,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-e270a82dc0fbe8335285"
+          "launchConfigId": "lc-bf66057fb7d09e4bc6d4"
         },
         "networkInterfaces": [
           {
@@ -253,7 +253,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-kyxthvgmnpkqitfjmupv"
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-xexlhdndfrowdsdpnwir"
             }
           }
         ],
@@ -271,7 +271,7 @@
                 "enableD2G": true
               },
               "wstAudience": "communitytc",
-              "deploymentId": "ed9d1ddc844c34d4",
+              "deploymentId": "ed60307ed61d8e9f",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "maxTaskRunTime": 259200,
               "idleTimeoutSecs": 15,
@@ -290,66 +290,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-014fb69c28d034a82811"
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
-        "zone": "us-east4-c",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-kyxthvgmnpkqitfjmupv"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate",
-          "provisioningModel": "SPOT",
-          "instanceTerminationAction": "DELETE"
-        },
-        "machineType": "zones/us-east4-c/machineTypes/c4d-highcpu-8",
-        "workerConfig": {
-          "genericWorker": {
-            "config": {
-              "d2gConfig": {
-                "enableD2G": true
-              },
-              "wstAudience": "communitytc",
-              "deploymentId": "ed9d1ddc844c34d4",
-              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "maxTaskRunTime": 259200,
-              "idleTimeoutSecs": 15,
-              "enableInteractive": true,
-              "workerTypeMetadata": {
-                "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
-                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
-                }
-              },
-              "disableOOMProtection": true,
-              "shutdownMachineOnIdle": true,
-              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
-              "shutdownMachineOnInternalError": true
-            }
-          }
-        },
-        "workerManager": {
-          "launchConfigId": "lc-bcb2f29f79be7fd53d60"
+          "launchConfigId": "lc-ba0e9633440cae5d60e3"
         },
         "networkInterfaces": [
           {
@@ -371,7 +312,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-kyxthvgmnpkqitfjmupv"
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-xexlhdndfrowdsdpnwir"
             }
           }
         ],
@@ -389,7 +330,7 @@
                 "enableD2G": true
               },
               "wstAudience": "communitytc",
-              "deploymentId": "ed9d1ddc844c34d4",
+              "deploymentId": "ed60307ed61d8e9f",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "maxTaskRunTime": 259200,
               "idleTimeoutSecs": 15,
@@ -408,7 +349,66 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-046721de7dfb073812ea"
+          "launchConfigId": "lc-934803066af57ca88af6"
+        },
+        "networkInterfaces": [
+          {
+            "accessConfigs": [
+              {
+                "type": "ONE_TO_ONE_NAT"
+              }
+            ]
+          }
+        ],
+        "capacityPerInstance": 1
+      },
+      {
+        "zone": "us-central1-b",
+        "disks": [
+          {
+            "boot": true,
+            "type": "PERSISTENT",
+            "autoDelete": true,
+            "initializeParams": {
+              "diskSizeGb": 60,
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-xexlhdndfrowdsdpnwir"
+            }
+          }
+        ],
+        "region": "us-central1",
+        "scheduling": {
+          "onHostMaintenance": "terminate",
+          "provisioningModel": "SPOT",
+          "instanceTerminationAction": "DELETE"
+        },
+        "machineType": "zones/us-central1-b/machineTypes/c4d-highcpu-8",
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "d2gConfig": {
+                "enableD2G": true
+              },
+              "wstAudience": "communitytc",
+              "deploymentId": "ed60307ed61d8e9f",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "maxTaskRunTime": 259200,
+              "idleTimeoutSecs": 15,
+              "enableInteractive": true,
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
+                }
+              },
+              "disableOOMProtection": true,
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-7bda5eca1b2289a329ab"
         },
         "networkInterfaces": [
           {
@@ -430,7 +430,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-kyxthvgmnpkqitfjmupv"
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-xexlhdndfrowdsdpnwir"
             }
           }
         ],
@@ -448,7 +448,7 @@
                 "enableD2G": true
               },
               "wstAudience": "communitytc",
-              "deploymentId": "ed9d1ddc844c34d4",
+              "deploymentId": "ed60307ed61d8e9f",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "maxTaskRunTime": 259200,
               "idleTimeoutSecs": 15,
@@ -467,7 +467,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-f1dd94c1a0ba8218221a"
+          "launchConfigId": "lc-df1d86626a05dc89dac2"
         },
         "networkInterfaces": [
           {
@@ -486,7 +486,7 @@
   "currentCapacity": 0,
   "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nFuzzing resources generated by https://github.com/MozillaSecurity/orion/tree/master/services/fuzzing-decision",
   "emailOnError": true,
-  "lastModified": "2025-11-14T17:15:45.790Z",
+  "lastModified": "2025-11-20T20:50:34.096Z",
   "owner": "truber@mozilla.com",
   "providerId": "community-tc-workers-google",
   "requestedCapacity": 0,

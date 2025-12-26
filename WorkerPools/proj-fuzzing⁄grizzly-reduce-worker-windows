@@ -8,7 +8,7 @@
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "5ae74aa9aa2ce268",
+              "deploymentId": "e837f13d564a79fb",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "idleTimeoutSecs": 15,
               "livelogExecutable": "C:\\generic-worker\\livelog.exe",
@@ -42,11 +42,58 @@
             }
           },
           "templateLink": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/templates-rg/providers/Microsoft.Resources/templateSpecs/arm-tpl-test-1/versions/3.0"
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/templates-rg/providers/Microsoft.Resources/templateSpecs/arm-tpl-test-1/versions/4.0"
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-f1d6032d21d036fb1b16",
+          "launchConfigId": "lc-d7b6564f26fc14f9a473",
+          "capacityPerInstance": 1
+        }
+      },
+      {
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "wstAudience": "communitytc",
+              "deploymentId": "e837f13d564a79fa",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "idleTimeoutSecs": 15,
+              "livelogExecutable": "C:\\generic-worker\\livelog.exe",
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/d914d3cec23552ba809c2a4bf416f394f9c928a3/imagesets/generic-worker-win2022-gpu/bootstrap.ps1",
+                  "maintainer": "pmoore@mozilla.com"
+                }
+              },
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "C:\\generic-worker\\generic-worker-ed25519-signing-key.key",
+              "taskclusterProxyExecutable": "C:\\generic-worker\\taskcluster-proxy.exe",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "armDeployment": {
+          "mode": "Incremental",
+          "parameters": {
+            "vmSize": {
+              "value": "Standard_NV12s_v3"
+            },
+            "imageId": {
+              "value": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-ytfwcpdpswpwhkdyvbmk-westus2"
+            },
+            "location": {
+              "value": "westus2"
+            },
+            "subnetId": {
+              "value": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-westus2/subnets/default"
+            }
+          },
+          "templateLink": {
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/templates-rg/providers/Microsoft.Resources/templateSpecs/arm-tpl-test-1/versions/4.0"
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-d7b6564f26fc14f9a472",
           "capacityPerInstance": 1
         }
       }
@@ -56,7 +103,7 @@
   "currentCapacity": 0,
   "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nWorkers for fuzzing",
   "emailOnError": true,
-  "lastModified": "2025-12-15T20:29:57.715Z",
+  "lastModified": "2025-12-23T18:25:07.062Z",
   "owner": "truber@mozilla.com",
   "providerId": "community-tc-workers-azure",
   "requestedCapacity": 0,

@@ -8,7 +8,54 @@
           "genericWorker": {
             "config": {
               "wstAudience": "communitytc",
-              "deploymentId": "2932d01eb9a2bcb6",
+              "deploymentId": "8ef8826c6af4e37f",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "idleTimeoutSecs": 15,
+              "livelogExecutable": "C:\\generic-worker\\livelog.exe",
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/d914d3cec23552ba809c2a4bf416f394f9c928a3/imagesets/generic-worker-win2022/bootstrap.ps1",
+                  "maintainer": "pmoore@mozilla.com"
+                }
+              },
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "C:\\generic-worker\\generic-worker-ed25519-signing-key.key",
+              "taskclusterProxyExecutable": "C:\\generic-worker\\taskcluster-proxy.exe",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "armDeployment": {
+          "mode": "Incremental",
+          "parameters": {
+            "vmSize": {
+              "value": "Standard_F16s_v2"
+            },
+            "imageId": {
+              "value": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-vfoohatcbnjmrbhgiuep-centralus"
+            },
+            "location": {
+              "value": "centralus"
+            },
+            "subnetId": {
+              "value": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-vnets/providers/Microsoft.Network/virtualNetworks/tc-vnet-centralus/subnets/default"
+            }
+          },
+          "templateLink": {
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/templates-rg/providers/Microsoft.Resources/templateSpecs/arm-tpl-test-1/versions/4.0"
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-62e977e8d0de981434cf",
+          "capacityPerInstance": 1
+        }
+      },
+      {
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "wstAudience": "communitytc",
+              "deploymentId": "8ef8826c6af4e37f",
               "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
               "idleTimeoutSecs": 15,
               "livelogExecutable": "C:\\generic-worker\\livelog.exe",
@@ -42,11 +89,11 @@
             }
           },
           "templateLink": {
-            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/templates-rg/providers/Microsoft.Resources/templateSpecs/arm-tpl-test-1/versions/3.0"
+            "id": "/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/templates-rg/providers/Microsoft.Resources/templateSpecs/arm-tpl-test-1/versions/4.0"
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-798cce28e3e08fb1721d",
+          "launchConfigId": "lc-e78fb0305d173f9d8850",
           "capacityPerInstance": 1
         }
       }
@@ -56,7 +103,7 @@
   "currentCapacity": 0,
   "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nWorkers for fuzzing",
   "emailOnError": true,
-  "lastModified": "2025-12-17T15:50:06.825Z",
+  "lastModified": "2025-12-23T15:52:41.155Z",
   "owner": "truber@mozilla.com",
   "providerId": "community-tc-workers-azure",
   "requestedCapacity": 0,

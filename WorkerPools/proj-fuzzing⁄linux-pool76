@@ -131,6 +131,67 @@
         }
       },
       {
+        "zone": "us-east1-d",
+        "disks": [
+          {
+            "boot": true,
+            "type": "PERSISTENT",
+            "autoDelete": true,
+            "initializeParams": {
+              "diskSizeGb": 60,
+              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-ovbqgpximhptjcjyfkvd"
+            }
+          }
+        ],
+        "region": "us-east1",
+        "scheduling": {
+          "onHostMaintenance": "terminate",
+          "provisioningModel": "SPOT",
+          "instanceTerminationAction": "DELETE"
+        },
+        "machineType": "zones/us-east1-d/machineTypes/c4-standard-8",
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "d2gConfig": {
+                "enableD2G": true
+              },
+              "wstAudience": "communitytc",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "maxTaskRunTime": 259200,
+              "idleTimeoutSecs": 900,
+              "enableInteractive": true,
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
+                }
+              },
+              "disableOOMProtection": true,
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-4424e58f9a03e8291343"
+        },
+        "networkInterfaces": [
+          {
+            "accessConfigs": [
+              {
+                "type": "ONE_TO_ONE_NAT"
+              }
+            ]
+          }
+        ],
+        "capacityPerInstance": 1,
+        "advancedMachineFeatures": {
+          "enableNestedVirtualization": true
+        }
+      },
+      {
         "zone": "us-east4-b",
         "disks": [
           {
@@ -192,7 +253,7 @@
         }
       },
       {
-        "zone": "us-central1-b",
+        "zone": "us-central1-f",
         "disks": [
           {
             "boot": true,
@@ -210,7 +271,7 @@
           "provisioningModel": "SPOT",
           "instanceTerminationAction": "DELETE"
         },
-        "machineType": "zones/us-central1-b/machineTypes/c4-standard-8",
+        "machineType": "zones/us-central1-f/machineTypes/c4-standard-8",
         "workerConfig": {
           "genericWorker": {
             "config": {
@@ -236,7 +297,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-7b538ae1c7d9199ba4d0"
+          "launchConfigId": "lc-0751ccab75b9f31c3449"
         },
         "networkInterfaces": [
           {
@@ -253,7 +314,7 @@
         }
       },
       {
-        "zone": "us-east4-c",
+        "zone": "us-central1-a",
         "disks": [
           {
             "boot": true,
@@ -265,13 +326,13 @@
             }
           }
         ],
-        "region": "us-east4",
+        "region": "us-central1",
         "scheduling": {
           "onHostMaintenance": "terminate",
           "provisioningModel": "SPOT",
           "instanceTerminationAction": "DELETE"
         },
-        "machineType": "zones/us-east4-c/machineTypes/c4-standard-8",
+        "machineType": "zones/us-central1-a/machineTypes/c4-standard-8",
         "workerConfig": {
           "genericWorker": {
             "config": {
@@ -297,7 +358,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-9245af06e1748b8d6292"
+          "launchConfigId": "lc-a571bd354001bef7d360"
         },
         "networkInterfaces": [
           {
@@ -436,7 +497,7 @@
         }
       },
       {
-        "zone": "us-east1-d",
+        "zone": "us-east4-c",
         "disks": [
           {
             "boot": true,
@@ -448,13 +509,13 @@
             }
           }
         ],
-        "region": "us-east1",
+        "region": "us-east4",
         "scheduling": {
           "onHostMaintenance": "terminate",
           "provisioningModel": "SPOT",
           "instanceTerminationAction": "DELETE"
         },
-        "machineType": "zones/us-east1-d/machineTypes/c4-standard-8",
+        "machineType": "zones/us-east4-c/machineTypes/c4-standard-8",
         "workerConfig": {
           "genericWorker": {
             "config": {
@@ -480,7 +541,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-4424e58f9a03e8291343"
+          "launchConfigId": "lc-9245af06e1748b8d6292"
         },
         "networkInterfaces": [
           {
@@ -497,7 +558,7 @@
         }
       },
       {
-        "zone": "us-central1-a",
+        "zone": "us-central1-b",
         "disks": [
           {
             "boot": true,
@@ -515,7 +576,7 @@
           "provisioningModel": "SPOT",
           "instanceTerminationAction": "DELETE"
         },
-        "machineType": "zones/us-central1-a/machineTypes/c4-standard-8",
+        "machineType": "zones/us-central1-b/machineTypes/c4-standard-8",
         "workerConfig": {
           "genericWorker": {
             "config": {
@@ -541,68 +602,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-a571bd354001bef7d360"
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1,
-        "advancedMachineFeatures": {
-          "enableNestedVirtualization": true
-        }
-      },
-      {
-        "zone": "us-central1-f",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 60,
-              "sourceImage": "projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-ovbqgpximhptjcjyfkvd"
-            }
-          }
-        ],
-        "region": "us-central1",
-        "scheduling": {
-          "onHostMaintenance": "terminate",
-          "provisioningModel": "SPOT",
-          "instanceTerminationAction": "DELETE"
-        },
-        "machineType": "zones/us-central1-f/machineTypes/c4-standard-8",
-        "workerConfig": {
-          "genericWorker": {
-            "config": {
-              "d2gConfig": {
-                "enableD2G": true
-              },
-              "wstAudience": "communitytc",
-              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "maxTaskRunTime": 259200,
-              "idleTimeoutSecs": 900,
-              "enableInteractive": true,
-              "workerTypeMetadata": {
-                "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
-                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
-                }
-              },
-              "disableOOMProtection": true,
-              "shutdownMachineOnIdle": true,
-              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
-              "shutdownMachineOnInternalError": true
-            }
-          }
-        },
-        "workerManager": {
-          "launchConfigId": "lc-0751ccab75b9f31c3449"
+          "launchConfigId": "lc-7b538ae1c7d9199ba4d0"
         },
         "networkInterfaces": [
           {
@@ -624,7 +624,7 @@
   "currentCapacity": 0,
   "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nFuzzing resources generated by https://github.com/MozillaSecurity/orion/tree/master/services/fuzzing-decision",
   "emailOnError": true,
-  "lastModified": "2026-03-03T20:33:23.419Z",
+  "lastModified": "2026-03-20T16:36:51.160Z",
   "owner": "truber@mozilla.com",
   "providerId": "community-tc-workers-google",
   "requestedCapacity": 0,

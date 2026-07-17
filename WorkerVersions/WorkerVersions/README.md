@@ -5,17 +5,17 @@
 
 ## Generic Worker
 
-Total: `172`
+Total: `170`
 
 Count by version:
 
 | Version | Count |
 | :--- | ---: |
-| 100.0.1 | 158 |
-| 101.0.0 | 1 |
+| 100.0.1 | 157 |
+| 101.1.0 | 1 |
 | 83.6.0 | 3 |
 | 87.1.1 | 1 |
-| 95.1.0 | 2 |
+| 95.1.0 | 1 |
 | 96.7.1 | 6 |
 | 99.2.1 | 1 |
 
@@ -24,189 +24,187 @@ Count by image:
 
 | Version | Count |
 | :--- | ---: |
-| projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-arm64-obcbblwwerqeleqspxpc | 6 |
+| /subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-jfsufqskgiwoaxvpgyfi-centralus,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-nxwvdctcvxqwdjnqnurq-eastus | 16 |
+| ami-00c9395c78ae5b601 | 5 |
 | /subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-blqdxfqktcnlejfljrlu-westus2,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-gjxahqopqymjqlnwlcxy-southcentralus,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-ittdjfdckpqnvqswdkno-eastus2,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-pytqpjhvfwnqlskngjsf-eastus | 3 |
-| unknown | 12 |
+| projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-bngpghpfficdxtlhnusi | 124 |
+| unknown | 11 |
+| projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-arm64-obcbblwwerqeleqspxpc | 6 |
 | ami-05fc5e0c31b199d96 | 1 |
 | ami-0afcb836d0b81a957 | 3 |
-| /subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-jfsufqskgiwoaxvpgyfi-centralus,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-nxwvdctcvxqwdjnqnurq-eastus | 16 |
-| projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-bngpghpfficdxtlhnusi | 125 |
-| ami-00c9395c78ae5b601 | 5 |
 | projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-staging-iuujjhskyujdtccoemka | 1 |
 
 
 | Worker Pool | Implementation | Version | Engine | Revision | OS | Arch | GO | Total Workers | Total Capacity |
 | --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |
 | **proj-bors-ng/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2 | 2 |
-| **proj-bugbug/batch** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 250 | 250 |
-| **proj-bugbug/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 71 | 71 |
-| **proj-bugbug/compute-large** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 47 | 47 |
-| **proj-bugbug/compute-small** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2 | 2 |
-| **proj-bugbug/compute-smaller** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 199 | 199 |
-| **proj-bugbug/compute-super-large** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 53 | 53 |
-| **proj-fuzzing/bugmon-monitor** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 69 | 69 |
+| **proj-bugbug/batch** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 358 | 358 |
+| **proj-bugbug/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 103 | 103 |
+| **proj-bugbug/compute-large** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 59 | 59 |
+| **proj-bugbug/compute-small** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 19 | 19 |
+| **proj-bugbug/compute-smaller** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 300 | 300 |
+| **proj-bugbug/compute-super-large** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 48 | 48 |
+| **proj-fuzzing/bugmon-monitor** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 93 | 93 |
 | **proj-fuzzing/bugmon-pernosco-gw** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2 | 2 |
 | **proj-fuzzing/bugmon-pernosco-staging** | generic-worker | 83.6.0 | multiuser | 0150bff352 | linux | amd64 | 1.24.2 | 2 | 2 |
-| **proj-fuzzing/bugmon-processor** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 53 | 53 |
-| **proj-fuzzing/bugmon-processor-windows** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 5 | 5 |
-| **proj-fuzzing/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 19 | 19 |
-| **proj-fuzzing/ci-arm64** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 2 | 2 |
+| **proj-fuzzing/bugmon-processor** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 203 | 203 |
+| **proj-fuzzing/bugmon-processor-windows** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 2 | 2 |
+| **proj-fuzzing/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 30 | 30 |
+| **proj-fuzzing/ci-arm64** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 3 | 3 |
 | **proj-fuzzing/ci-clauditor-builder** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 2 | 2 |
 | **proj-fuzzing/ci-clauditor-workers** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 2 | 2 |
-| **proj-fuzzing/ci-decision** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2692 | 2692 |
-| **proj-fuzzing/ci-windows** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 2 | 2 |
-| **proj-fuzzing/decision** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 694 | 694 |
-| **proj-fuzzing/grizzly-reduce-worker-android** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 328 | 328 |
-| **proj-fuzzing/grizzly-reduce-worker-windows** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 273 | 273 |
-| **proj-fuzzing/grizzly-reduce-worker-windows-ngpu** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 457 | 457 |
-| **proj-fuzzing/linux-pool1** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 53 | 53 |
-| **proj-fuzzing/linux-pool10** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 303 | 303 |
-| **proj-fuzzing/linux-pool100** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 83 | 83 |
-| **proj-fuzzing/linux-pool101** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 76 | 76 |
-| **proj-fuzzing/linux-pool102** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 80 | 80 |
-| **proj-fuzzing/linux-pool103** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 195 | 195 |
-| **proj-fuzzing/linux-pool104** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 211 | 211 |
-| **proj-fuzzing/linux-pool105** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 170 | 170 |
-| **proj-fuzzing/linux-pool106** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 153 | 153 |
-| **proj-fuzzing/linux-pool107** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 81 | 81 |
-| **proj-fuzzing/linux-pool108** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 81 | 81 |
-| **proj-fuzzing/linux-pool109** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 13 | 13 |
-| **proj-fuzzing/linux-pool113** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 35 | 35 |
-| **proj-fuzzing/linux-pool114** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 9 | 9 |
-| **proj-fuzzing/linux-pool115** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 10 | 10 |
-| **proj-fuzzing/linux-pool116** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 6 | 6 |
-| **proj-fuzzing/linux-pool117** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 8 | 8 |
-| **proj-fuzzing/linux-pool118** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 28 | 28 |
-| **proj-fuzzing/linux-pool119** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 22 | 22 |
-| **proj-fuzzing/linux-pool12** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 40 | 40 |
+| **proj-fuzzing/ci-decision** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2712 | 2712 |
+| **proj-fuzzing/ci-windows** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 9 | 9 |
+| **proj-fuzzing/decision** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 877 | 877 |
+| **proj-fuzzing/grizzly-reduce-worker-android** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 331 | 331 |
+| **proj-fuzzing/grizzly-reduce-worker-windows** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 448 | 448 |
+| **proj-fuzzing/grizzly-reduce-worker-windows-ngpu** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 522 | 522 |
+| **proj-fuzzing/linux-pool1** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 52 | 52 |
+| **proj-fuzzing/linux-pool10** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 307 | 307 |
+| **proj-fuzzing/linux-pool100** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 80 | 80 |
+| **proj-fuzzing/linux-pool101** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 79 | 79 |
+| **proj-fuzzing/linux-pool102** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 83 | 83 |
+| **proj-fuzzing/linux-pool103** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 191 | 191 |
+| **proj-fuzzing/linux-pool104** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 199 | 199 |
+| **proj-fuzzing/linux-pool105** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 202 | 202 |
+| **proj-fuzzing/linux-pool106** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 171 | 171 |
+| **proj-fuzzing/linux-pool107** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 79 | 79 |
+| **proj-fuzzing/linux-pool108** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 86 | 86 |
+| **proj-fuzzing/linux-pool109** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 15 | 15 |
+| **proj-fuzzing/linux-pool11** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 65 | 65 |
+| **proj-fuzzing/linux-pool113** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 32 | 32 |
+| **proj-fuzzing/linux-pool114** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 7 | 7 |
+| **proj-fuzzing/linux-pool115** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 7 | 7 |
+| **proj-fuzzing/linux-pool116** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 4 | 4 |
+| **proj-fuzzing/linux-pool117** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 6 | 6 |
+| **proj-fuzzing/linux-pool118** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 27 | 27 |
+| **proj-fuzzing/linux-pool119** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 21 | 21 |
+| **proj-fuzzing/linux-pool12** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 39 | 39 |
 | **proj-fuzzing/linux-pool120** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 23 | 23 |
-| **proj-fuzzing/linux-pool122** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 24 | 24 |
+| **proj-fuzzing/linux-pool122** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 22 | 22 |
 | **proj-fuzzing/linux-pool123** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 3 | 3 |
-| **proj-fuzzing/linux-pool124** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 42 | 42 |
-| **proj-fuzzing/linux-pool125** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 46 | 46 |
-| **proj-fuzzing/linux-pool126** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 6 | 6 |
-| **proj-fuzzing/linux-pool127** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 118 | 118 |
-| **proj-fuzzing/linux-pool129** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 39 | 39 |
-| **proj-fuzzing/linux-pool13** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 81 | 81 |
+| **proj-fuzzing/linux-pool124** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 43 | 43 |
+| **proj-fuzzing/linux-pool125** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 44 | 44 |
+| **proj-fuzzing/linux-pool126** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 7 | 7 |
+| **proj-fuzzing/linux-pool127** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 117 | 117 |
+| **proj-fuzzing/linux-pool129** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 40 | 40 |
+| **proj-fuzzing/linux-pool13** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 71 | 71 |
 | **proj-fuzzing/linux-pool130** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 77 | 77 |
-| **proj-fuzzing/linux-pool131** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 76 | 76 |
-| **proj-fuzzing/linux-pool132** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 39 | 39 |
+| **proj-fuzzing/linux-pool131** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 75 | 75 |
+| **proj-fuzzing/linux-pool132** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 38 | 38 |
 | **proj-fuzzing/linux-pool133** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 36 | 36 |
-| **proj-fuzzing/linux-pool14** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 75 | 75 |
-| **proj-fuzzing/linux-pool15** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 86 | 86 |
-| **proj-fuzzing/linux-pool16** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 68 | 68 |
-| **proj-fuzzing/linux-pool17** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 358 | 358 |
-| **proj-fuzzing/linux-pool18** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 78 | 78 |
-| **proj-fuzzing/linux-pool19** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 80 | 80 |
-| **proj-fuzzing/linux-pool2** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 45 | 45 |
-| **proj-fuzzing/linux-pool20** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 129 | 129 |
-| **proj-fuzzing/linux-pool21** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 76 | 76 |
+| **proj-fuzzing/linux-pool15** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 74 | 74 |
+| **proj-fuzzing/linux-pool17** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 428 | 428 |
+| **proj-fuzzing/linux-pool18** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 73 | 73 |
+| **proj-fuzzing/linux-pool19** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 76 | 76 |
+| **proj-fuzzing/linux-pool2** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 44 | 44 |
+| **proj-fuzzing/linux-pool20** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 116 | 116 |
+| **proj-fuzzing/linux-pool21** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 80 | 80 |
 | **proj-fuzzing/linux-pool22** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 77 | 77 |
-| **proj-fuzzing/linux-pool23** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 58 | 58 |
-| **proj-fuzzing/linux-pool25** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 78 | 78 |
-| **proj-fuzzing/linux-pool26** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 80 | 80 |
-| **proj-fuzzing/linux-pool27** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 85 | 85 |
+| **proj-fuzzing/linux-pool23** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 65 | 65 |
+| **proj-fuzzing/linux-pool25** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 82 | 82 |
+| **proj-fuzzing/linux-pool26** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 82 | 82 |
+| **proj-fuzzing/linux-pool27** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 81 | 81 |
 | **proj-fuzzing/linux-pool28** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 118 | 118 |
-| **proj-fuzzing/linux-pool29** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 124 | 124 |
-| **proj-fuzzing/linux-pool3** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 28 | 28 |
+| **proj-fuzzing/linux-pool29** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 139 | 139 |
+| **proj-fuzzing/linux-pool3** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 38 | 38 |
 | **proj-fuzzing/linux-pool30** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 40 | 40 |
-| **proj-fuzzing/linux-pool31** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 39 | 39 |
-| **proj-fuzzing/linux-pool32** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 40 | 40 |
-| **proj-fuzzing/linux-pool33** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 38 | 38 |
-| **proj-fuzzing/linux-pool34** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 36 | 36 |
-| **proj-fuzzing/linux-pool35** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 54 | 54 |
-| **proj-fuzzing/linux-pool36** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 39 | 39 |
-| **proj-fuzzing/linux-pool37** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 36 | 36 |
-| **proj-fuzzing/linux-pool38** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 41 | 41 |
+| **proj-fuzzing/linux-pool31** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 40 | 40 |
+| **proj-fuzzing/linux-pool32** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 36 | 36 |
+| **proj-fuzzing/linux-pool33** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 36 | 36 |
+| **proj-fuzzing/linux-pool34** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
+| **proj-fuzzing/linux-pool35** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 55 | 55 |
+| **proj-fuzzing/linux-pool36** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
+| **proj-fuzzing/linux-pool37** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 38 | 38 |
+| **proj-fuzzing/linux-pool38** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
 | **proj-fuzzing/linux-pool39** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
 | **proj-fuzzing/linux-pool40** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 39 | 39 |
-| **proj-fuzzing/linux-pool41** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 36 | 36 |
-| **proj-fuzzing/linux-pool42** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 36 | 36 |
+| **proj-fuzzing/linux-pool41** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 39 | 39 |
+| **proj-fuzzing/linux-pool42** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
 | **proj-fuzzing/linux-pool43** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
 | **proj-fuzzing/linux-pool44** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
-| **proj-fuzzing/linux-pool45** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 31 | 31 |
-| **proj-fuzzing/linux-pool46** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 81 | 81 |
-| **proj-fuzzing/linux-pool47** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 21 | 21 |
-| **proj-fuzzing/linux-pool48** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 15 | 15 |
-| **proj-fuzzing/linux-pool49** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 10 | 10 |
-| **proj-fuzzing/linux-pool5** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 41 | 41 |
-| **proj-fuzzing/linux-pool50** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 509 | 509 |
-| **proj-fuzzing/linux-pool51** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 47 | 47 |
-| **proj-fuzzing/linux-pool52** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 5 | 5 |
+| **proj-fuzzing/linux-pool45** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 34 | 34 |
+| **proj-fuzzing/linux-pool46** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 85 | 85 |
+| **proj-fuzzing/linux-pool47** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 22 | 22 |
+| **proj-fuzzing/linux-pool48** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 23 | 23 |
+| **proj-fuzzing/linux-pool49** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 12 | 12 |
+| **proj-fuzzing/linux-pool5** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 45 | 45 |
+| **proj-fuzzing/linux-pool50** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 612 | 612 |
+| **proj-fuzzing/linux-pool51** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 44 | 44 |
+| **proj-fuzzing/linux-pool52** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 4 | 4 |
 | **proj-fuzzing/linux-pool53** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 3 | 3 |
 | **proj-fuzzing/linux-pool54** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 4 | 4 |
-| **proj-fuzzing/linux-pool57** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 11 | 11 |
-| **proj-fuzzing/linux-pool6** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 320 | 320 |
+| **proj-fuzzing/linux-pool57** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 7 | 7 |
+| **proj-fuzzing/linux-pool6** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 338 | 338 |
 | **proj-fuzzing/linux-pool65** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 5 | 5 |
-| **proj-fuzzing/linux-pool66** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 81 | 81 |
+| **proj-fuzzing/linux-pool66** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 72 | 72 |
 | **proj-fuzzing/linux-pool67** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 81 | 81 |
-| **proj-fuzzing/linux-pool68** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 83 | 83 |
-| **proj-fuzzing/linux-pool69** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
-| **proj-fuzzing/linux-pool7** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 42 | 42 |
-| **proj-fuzzing/linux-pool70** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 5 | 5 |
-| **proj-fuzzing/linux-pool72** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 90 | 90 |
-| **proj-fuzzing/linux-pool76** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 104 | 104 |
-| **proj-fuzzing/linux-pool77** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 5 | 5 |
-| **proj-fuzzing/linux-pool78** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 41 | 41 |
-| **proj-fuzzing/linux-pool8** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 622 | 622 |
-| **proj-fuzzing/linux-pool82** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 37 | 37 |
+| **proj-fuzzing/linux-pool68** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 82 | 82 |
+| **proj-fuzzing/linux-pool69** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 36 | 36 |
+| **proj-fuzzing/linux-pool7** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 44 | 44 |
+| **proj-fuzzing/linux-pool70** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 4 | 4 |
+| **proj-fuzzing/linux-pool72** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 92 | 92 |
+| **proj-fuzzing/linux-pool76** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 105 | 105 |
+| **proj-fuzzing/linux-pool77** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 4 | 4 |
+| **proj-fuzzing/linux-pool78** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 43 | 43 |
+| **proj-fuzzing/linux-pool8** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 640 | 640 |
+| **proj-fuzzing/linux-pool82** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 39 | 39 |
 | **proj-fuzzing/linux-pool83** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 161 | 161 |
-| **proj-fuzzing/linux-pool84** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 6 | 6 |
+| **proj-fuzzing/linux-pool84** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 5 | 5 |
 | **proj-fuzzing/linux-pool86** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 3 | 3 |
-| **proj-fuzzing/linux-pool9** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 180 | 180 |
-| **proj-fuzzing/linux-pool90** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 155 | 155 |
+| **proj-fuzzing/linux-pool9** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 181 | 181 |
+| **proj-fuzzing/linux-pool90** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 153 | 153 |
 | **proj-fuzzing/linux-pool91** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 82 | 82 |
-| **proj-fuzzing/linux-pool92** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 27 | 27 |
-| **proj-fuzzing/linux-pool94** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 462 | 462 |
+| **proj-fuzzing/linux-pool92** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 30 | 30 |
+| **proj-fuzzing/linux-pool94** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 466 | 466 |
 | **proj-fuzzing/linux-pool95** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 5 | 5 |
-| **proj-fuzzing/linux-pool96** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 32 | 32 |
+| **proj-fuzzing/linux-pool96** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 28 | 28 |
 | **proj-fuzzing/linux-pool97** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 3 | 3 |
 | **proj-fuzzing/linux-pool99** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 79 | 79 |
-| **proj-fuzzing/nss-corpus-update-worker** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2 | 2 |
-| **proj-fuzzing/windows-pool110** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 12 | 12 |
-| **proj-fuzzing/windows-pool111** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 55 | 55 |
+| **proj-fuzzing/nss-corpus-update-worker** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 4 | 4 |
+| **proj-fuzzing/windows-pool110** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 10 | 10 |
+| **proj-fuzzing/windows-pool111** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 51 | 51 |
 | **proj-fuzzing/windows-pool112** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 52 | 52 |
-| **proj-fuzzing/windows-pool121** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 35 | 35 |
-| **proj-fuzzing/windows-pool55** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 60 | 60 |
-| **proj-fuzzing/windows-pool58** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 226 | 226 |
-| **proj-fuzzing/windows-pool59** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 61 | 61 |
-| **proj-fuzzing/windows-pool60** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 11 | 11 |
+| **proj-fuzzing/windows-pool121** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 45 | 45 |
+| **proj-fuzzing/windows-pool55** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 58 | 58 |
+| **proj-fuzzing/windows-pool58** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 223 | 223 |
+| **proj-fuzzing/windows-pool59** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 55 | 55 |
+| **proj-fuzzing/windows-pool60** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 12 | 12 |
 | **proj-fuzzing/windows-pool61** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 11 | 11 |
-| **proj-fuzzing/windows-pool62** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 45 | 45 |
-| **proj-fuzzing/windows-pool63** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 220 | 220 |
-| **proj-fuzzing/windows-pool81** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 41 | 41 |
-| **proj-fuzzing/windows-pool85** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 53 | 53 |
+| **proj-fuzzing/windows-pool62** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 40 | 40 |
+| **proj-fuzzing/windows-pool63** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 215 | 215 |
+| **proj-fuzzing/windows-pool81** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 44 | 44 |
+| **proj-fuzzing/windows-pool85** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 54 | 54 |
 | **proj-fuzzing/windows-pool87** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 9 | 9 |
-| **proj-fuzzing/windows-pool89** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 195 | 195 |
-| **proj-fuzzing/windows-pool93** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 555 | 555 |
-| **proj-fuzzing/windows-pool98** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 96 | 96 |
-| **proj-git-cinnabar/linux** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 142 | 142 |
+| **proj-fuzzing/windows-pool89** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 204 | 204 |
+| **proj-fuzzing/windows-pool93** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 580 | 580 |
+| **proj-fuzzing/windows-pool98** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 95 | 95 |
+| **proj-git-cinnabar/linux** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 14 | 14 |
 | **proj-git-cinnabar/windows** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 2 | 2 |
-| **proj-misc/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 38 | 38 |
+| **proj-misc/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 96 | 96 |
 | **proj-misc/tutorial** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 10 | 10 |
-| **proj-mozci/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 20 | 20 |
+| **proj-mozci/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 14 | 14 |
 | **proj-mozci/compute-small** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2 | 2 |
-| **proj-mozci/compute-smaller** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 19740 | 19740 |
+| **proj-mozci/compute-smaller** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 19759 | 19759 |
 | **proj-mozci/generic-worker-ubuntu-24-04** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 7 | 7 |
 | **proj-releng/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2 | 2 |
-| **proj-relman/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 53 | 53 |
-| **proj-relman/generic-worker-ubuntu-24-04** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 159 | 159 |
+| **proj-relman/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 87 | 87 |
+| **proj-relman/generic-worker-ubuntu-24-04** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 125 | 125 |
 | **proj-relman/win2022** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 2 | 2 |
-| **proj-taskcluster/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 56 | 56 |
-| **proj-taskcluster/gw-ci-macos** | generic-worker | 101.0.0 | multiuser | 4d6880dccb | darwin | arm64 | 1.26.4 | 2 | 2 |
-| **proj-taskcluster/gw-ubuntu-24-04** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 3386 | 3386 |
+| **proj-taskcluster/ci** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 65 | 65 |
+| **proj-taskcluster/gw-ci-macos** | generic-worker | 101.1.0 | multiuser | da19a609f9 | darwin | arm64 | 1.26.4 | 2 | 2 |
+| **proj-taskcluster/gw-ubuntu-24-04** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 3768 | 3768 |
 | **proj-taskcluster/gw-ubuntu-24-04-arm64** | generic-worker | 96.7.1 | multiuser | 941f70217e | linux | arm64 | 1.26.0 | 2 | 2 |
-| **proj-taskcluster/gw-ubuntu-24-04-gui** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 251 | 251 |
+| **proj-taskcluster/gw-ubuntu-24-04-gui** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 248 | 248 |
 | **proj-taskcluster/gw-ubuntu-24-04-metal** | generic-worker | 83.6.0 | multiuser | 0150bff352 | linux | amd64 | 1.24.2 | 2 | 2 |
 | **proj-taskcluster/gw-ubuntu-staging-aws** | generic-worker | 83.6.0 | multiuser | 0150bff352 | linux | amd64 | 1.24.2 | 2 | 2 |
 | **proj-taskcluster/gw-ubuntu-staging-google** | generic-worker | 99.2.1 | multiuser | c8ecac4273 | linux | amd64 | 1.26.2 | 2 | 2 |
-| **proj-taskcluster/gw-windows-11-24h2-staging** | generic-worker | 95.1.0 | multiuser | 42f6cb7a8b | windows | amd64 | 1.25.5 | 62 | 62 |
-| **proj-taskcluster/gw-windows-2022** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 118 | 118 |
+| **proj-taskcluster/gw-windows-2022** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 130 | 130 |
 | **proj-taskcluster/gw-windows-2022-gpu** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 2 | 2 |
 | **proj-taskcluster/gw-windows-2022-gpu-staging** | generic-worker | 95.1.0 | multiuser | 42f6cb7a8b | windows | amd64 | 1.25.5 | 2 | 2 |
-| **proj-taskcluster/gw-windows-2022-gui** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 130 | 130 |
+| **proj-taskcluster/gw-windows-2022-gui** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | windows | amd64 | 1.26.2 | 133 | 133 |
 | **proj-taskcluster/gw-windows-2025-staging** | generic-worker | 87.1.1 | multiuser | 5600421294 | windows | amd64 | 1.24.5 | 2 | 2 |
-| **proj-taskcluster/release** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 4 | 4 |
+| **proj-taskcluster/release** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 3 | 3 |
 | **proj-webrender/ci-linux** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2 | 2 |
 | **proj-wpt/ci-gw** | generic-worker | 100.0.1 | multiuser | fcf9d8ed58 | linux | amd64 | 1.26.2 | 2 | 2 |
 
@@ -233,9 +231,9 @@ Count by image:
 
 | Worker Pool | Implementation | Version | Total Workers | Total Capacity |
 | --- | --- | --- | ---: | ---: |
-| **proj-fuzzing/bugmon-pernosco** | docker-worker | 44.23.4 | 4 | 4 |
+| **proj-fuzzing/bugmon-pernosco** | docker-worker | 44.23.4 | 2 | 2 |
 | **proj-taskcluster/old-docker-worker** | docker-worker | 46.1.0 | 2 | 2 |
-| **proj-wpt/ci** | docker-worker | 46.1.0 | 6192 | 6192 |
+| **proj-wpt/ci** | docker-worker | 46.1.0 | 4680 | 4680 |
 
 
 ## Script Worker
@@ -259,30 +257,32 @@ Total: `2`
 
 ## Version not determined [^2]
 
-Total: `9`
+Total: `11`
 
 
 Count by image:
 
 | Version | Count |
 | :--- | ---: |
-| projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-bngpghpfficdxtlhnusi | 5 |
-| /subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-jfsufqskgiwoaxvpgyfi-centralus,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-nxwvdctcvxqwdjnqnurq-eastus | 1 |
 | /subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-blqdxfqktcnlejfljrlu-westus2,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-gjxahqopqymjqlnwlcxy-southcentralus,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-ittdjfdckpqnvqswdkno-eastus2,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-pytqpjhvfwnqlskngjsf-eastus | 1 |
-| unknown | 2 |
+| unknown | 3 |
+| /subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-jfsufqskgiwoaxvpgyfi-centralus,/subscriptions/8a205152-b25a-417f-a676-80465535a6c9/resourceGroups/rg-tc-eng-images/providers/Microsoft.Compute/images/imageset-nxwvdctcvxqwdjnqnurq-eastus | 1 |
+| projects/community-tc-workers/global/images/generic-worker-ubuntu-24-04-bngpghpfficdxtlhnusi | 6 |
 
 
 | Worker Pool | Implementation | Version | Total Workers | Total Capacity |
 | --- | --- | --- | ---: | ---: |
-| **proj-fuzzing/ci-clauditor-workers-a10** |  | Version not determined; task not (yet) claimed | 297 | 297 |
-| **proj-fuzzing/grizzly-reduce-worker** |  | Version not determined; task not (yet) claimed | 101 | 101 |
-| **proj-fuzzing/linux-pool11** |  | Version not determined; task not (yet) claimed | 49 | 49 |
+| **proj-fuzzing/ci-clauditor-workers-a10** |  | Version not determined; task not (yet) claimed | 283 | 283 |
+| **proj-fuzzing/grizzly-reduce-worker** |  | Version not determined; task not (yet) claimed | 111 | 111 |
 | **proj-fuzzing/linux-pool128** |  | Version not determined; task not (yet) claimed | 0 | 0 |
+| **proj-fuzzing/linux-pool14** |  | Version not determined; task not (yet) claimed | 85 | 85 |
+| **proj-fuzzing/linux-pool16** |  | Version not determined; task not (yet) claimed | 58 | 58 |
 | **proj-fuzzing/linux-pool4** |  | Version not determined; task not (yet) claimed | 0 | 0 |
 | **proj-fuzzing/linux-pool64** |  | Version not determined; task not (yet) claimed | 0 | 0 |
 | **proj-fuzzing/windows-pool79** |  | Version not determined; task not (yet) claimed | 0 | 0 |
 | **proj-taskcluster/gw-ci-freebsd** |  | Version not determined; task not (yet) claimed | 1 | 1 |
-| **proj-taskcluster/gw-windows-2022-staging** |  | Version not determined; task not (yet) claimed | 4 | 4 |
+| **proj-taskcluster/gw-windows-11-24h2-staging** |  | Version not determined; task not (yet) claimed | 33 | 33 |
+| **proj-taskcluster/gw-windows-2022-staging** |  | Version not determined; task not (yet) claimed | 3 | 3 |
 
 
 

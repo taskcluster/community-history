@@ -9,65 +9,6 @@
     "minCapacity": 0,
     "launchConfigs": [
       {
-        "zone": "us-east4-a",
-        "disks": [
-          {
-            "boot": true,
-            "type": "PERSISTENT",
-            "autoDelete": true,
-            "initializeParams": {
-              "diskSizeGb": 60,
-              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-00bd1fca7052440ba8db"
-            }
-          }
-        ],
-        "region": "us-east4",
-        "scheduling": {
-          "onHostMaintenance": "terminate",
-          "provisioningModel": "SPOT",
-          "instanceTerminationAction": "DELETE"
-        },
-        "machineType": "zones/us-east4-a/machineTypes/c4d-highcpu-8",
-        "workerConfig": {
-          "genericWorker": {
-            "config": {
-              "d2gConfig": {
-                "enableD2G": true
-              },
-              "wstAudience": "communitytc",
-              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
-              "maxTaskRunTime": 259200,
-              "idleTimeoutSecs": 900,
-              "enableInteractive": true,
-              "numberOfTasksToRun": 0,
-              "workerTypeMetadata": {
-                "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
-                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
-                }
-              },
-              "disableOOMProtection": true,
-              "shutdownMachineOnIdle": true,
-              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
-              "shutdownMachineOnInternalError": true
-            }
-          }
-        },
-        "workerManager": {
-          "launchConfigId": "lc-41deb541a3d874428b9c"
-        },
-        "networkInterfaces": [
-          {
-            "accessConfigs": [
-              {
-                "type": "ONE_TO_ONE_NAT"
-              }
-            ]
-          }
-        ],
-        "capacityPerInstance": 1
-      },
-      {
         "zone": "us-east1-b",
         "disks": [
           {
@@ -76,7 +17,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-00bd1fca7052440ba8db"
+              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-057b81800ee54b8e8ee8"
             }
           }
         ],
@@ -101,7 +42,7 @@
               "numberOfTasksToRun": 0,
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "script": "https://raw.githubusercontent.com/mozilla-platform-ops/worker-images/8d1eef6b1d2109725b0f8cefd4ab68215db67cee/scripts/linux/tceng/generic-worker-ubuntu-24-04.sh",
                   "maintainer": "taskcluster-notifications+workers@mozilla.com"
                 }
               },
@@ -113,7 +54,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-1a843aeb9361bbab9b30"
+          "launchConfigId": "lc-685d91f74695712ee583"
         },
         "networkInterfaces": [
           {
@@ -135,7 +76,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-00bd1fca7052440ba8db"
+              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-057b81800ee54b8e8ee8"
             }
           }
         ],
@@ -160,7 +101,7 @@
               "numberOfTasksToRun": 0,
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "script": "https://raw.githubusercontent.com/mozilla-platform-ops/worker-images/8d1eef6b1d2109725b0f8cefd4ab68215db67cee/scripts/linux/tceng/generic-worker-ubuntu-24-04.sh",
                   "maintainer": "taskcluster-notifications+workers@mozilla.com"
                 }
               },
@@ -172,7 +113,66 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-60676b27499fc2c77608"
+          "launchConfigId": "lc-bb80f1bf0ce05c117f4b"
+        },
+        "networkInterfaces": [
+          {
+            "accessConfigs": [
+              {
+                "type": "ONE_TO_ONE_NAT"
+              }
+            ]
+          }
+        ],
+        "capacityPerInstance": 1
+      },
+      {
+        "zone": "us-east4-a",
+        "disks": [
+          {
+            "boot": true,
+            "type": "PERSISTENT",
+            "autoDelete": true,
+            "initializeParams": {
+              "diskSizeGb": 60,
+              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-057b81800ee54b8e8ee8"
+            }
+          }
+        ],
+        "region": "us-east4",
+        "scheduling": {
+          "onHostMaintenance": "terminate",
+          "provisioningModel": "SPOT",
+          "instanceTerminationAction": "DELETE"
+        },
+        "machineType": "zones/us-east4-a/machineTypes/c4d-highcpu-8",
+        "workerConfig": {
+          "genericWorker": {
+            "config": {
+              "d2gConfig": {
+                "enableD2G": true
+              },
+              "wstAudience": "communitytc",
+              "wstServerURL": "https://community-websocktunnel.services.mozilla.com",
+              "maxTaskRunTime": 259200,
+              "idleTimeoutSecs": 900,
+              "enableInteractive": true,
+              "numberOfTasksToRun": 0,
+              "workerTypeMetadata": {
+                "machine-setup": {
+                  "script": "https://raw.githubusercontent.com/mozilla-platform-ops/worker-images/8d1eef6b1d2109725b0f8cefd4ab68215db67cee/scripts/linux/tceng/generic-worker-ubuntu-24-04.sh",
+                  "maintainer": "taskcluster-notifications+workers@mozilla.com"
+                }
+              },
+              "disableOOMProtection": true,
+              "shutdownMachineOnIdle": true,
+              "ed25519SigningKeyLocation": "/etc/generic-worker/ed25519_key",
+              "shutdownMachineOnInternalError": true
+            }
+          }
+        },
+        "workerManager": {
+          "launchConfigId": "lc-6dac18f0891a2b334c35"
         },
         "networkInterfaces": [
           {
@@ -194,7 +194,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-00bd1fca7052440ba8db"
+              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-057b81800ee54b8e8ee8"
             }
           }
         ],
@@ -219,7 +219,7 @@
               "numberOfTasksToRun": 0,
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "script": "https://raw.githubusercontent.com/mozilla-platform-ops/worker-images/8d1eef6b1d2109725b0f8cefd4ab68215db67cee/scripts/linux/tceng/generic-worker-ubuntu-24-04.sh",
                   "maintainer": "taskcluster-notifications+workers@mozilla.com"
                 }
               },
@@ -231,7 +231,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-e3f40fb45378769accd4"
+          "launchConfigId": "lc-3fdfb3a14b7e40f760bd"
         },
         "networkInterfaces": [
           {
@@ -253,7 +253,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-00bd1fca7052440ba8db"
+              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-057b81800ee54b8e8ee8"
             }
           }
         ],
@@ -278,7 +278,7 @@
               "numberOfTasksToRun": 0,
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "script": "https://raw.githubusercontent.com/mozilla-platform-ops/worker-images/8d1eef6b1d2109725b0f8cefd4ab68215db67cee/scripts/linux/tceng/generic-worker-ubuntu-24-04.sh",
                   "maintainer": "taskcluster-notifications+workers@mozilla.com"
                 }
               },
@@ -290,7 +290,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-7d18733f098be3cd89bd"
+          "launchConfigId": "lc-a2154299d5569573c9f1"
         },
         "networkInterfaces": [
           {
@@ -312,7 +312,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-00bd1fca7052440ba8db"
+              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-057b81800ee54b8e8ee8"
             }
           }
         ],
@@ -337,7 +337,7 @@
               "numberOfTasksToRun": 0,
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "script": "https://raw.githubusercontent.com/mozilla-platform-ops/worker-images/8d1eef6b1d2109725b0f8cefd4ab68215db67cee/scripts/linux/tceng/generic-worker-ubuntu-24-04.sh",
                   "maintainer": "taskcluster-notifications+workers@mozilla.com"
                 }
               },
@@ -349,7 +349,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-c7207d0f9519e2851aec"
+          "launchConfigId": "lc-9b33ab9272f13869744e"
         },
         "networkInterfaces": [
           {
@@ -371,7 +371,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-00bd1fca7052440ba8db"
+              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-057b81800ee54b8e8ee8"
             }
           }
         ],
@@ -396,7 +396,7 @@
               "numberOfTasksToRun": 0,
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "script": "https://raw.githubusercontent.com/mozilla-platform-ops/worker-images/8d1eef6b1d2109725b0f8cefd4ab68215db67cee/scripts/linux/tceng/generic-worker-ubuntu-24-04.sh",
                   "maintainer": "taskcluster-notifications+workers@mozilla.com"
                 }
               },
@@ -408,7 +408,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-675e9be30bde19879ad5"
+          "launchConfigId": "lc-a45591c76a98112c37ff"
         },
         "networkInterfaces": [
           {
@@ -430,7 +430,7 @@
             "autoDelete": true,
             "initializeParams": {
               "diskSizeGb": 60,
-              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-00bd1fca7052440ba8db"
+              "sourceImage": "projects/taskcluster-imaging/global/images/generic-worker-ubuntu-24-04-057b81800ee54b8e8ee8"
             }
           }
         ],
@@ -455,7 +455,7 @@
               "numberOfTasksToRun": 0,
               "workerTypeMetadata": {
                 "machine-setup": {
-                  "script": "https://raw.githubusercontent.com/taskcluster/community-tc-config/b5b7c2ad856c144a6759e6e72280c4a958f8a930/imagesets/generic-worker-ubuntu-24-04/bootstrap.sh",
+                  "script": "https://raw.githubusercontent.com/mozilla-platform-ops/worker-images/8d1eef6b1d2109725b0f8cefd4ab68215db67cee/scripts/linux/tceng/generic-worker-ubuntu-24-04.sh",
                   "maintainer": "taskcluster-notifications+workers@mozilla.com"
                 }
               },
@@ -467,7 +467,7 @@
           }
         },
         "workerManager": {
-          "launchConfigId": "lc-b1467c2a2631d122cd11"
+          "launchConfigId": "lc-8813302f169436b8a86a"
         },
         "networkInterfaces": [
           {
@@ -486,7 +486,7 @@
   "currentCapacity": 0,
   "description": "*DO NOT EDIT* - This resource is configured automatically.\n\nFuzzing resources generated by https://github.com/MozillaSecurity/orion/tree/master/services/fuzzing-decision",
   "emailOnError": true,
-  "lastModified": "2026-10-16T21:12:42.308Z",
+  "lastModified": "2026-11-11T14:27:35.076Z",
   "owner": "truber@mozilla.com",
   "providerId": "community-tc-workers-google",
   "requestedCapacity": 0,
